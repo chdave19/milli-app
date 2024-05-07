@@ -31,7 +31,6 @@ function App(props) {
       .then((data) => {
         setDataFetched(true);
         setData(QBank1(data.results));
-        console.log(QBank1(data.results))
       })
       .catch((e) => {
         console.log(e);

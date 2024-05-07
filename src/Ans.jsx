@@ -27,7 +27,7 @@ export default class Ans extends Component {
                 this.props.animateFail: ''
               }
             >
-              {data.ans}
+              <span style={{color: 'orange', fontSize:'1.5rem'}}>{`${i+1}:`}</span><span>{data.ans}</span>
             </li>
           ))}
         </ul>

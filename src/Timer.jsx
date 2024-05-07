@@ -1,4 +1,6 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent } from 'react';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 export default class Timer extends PureComponent{
   constructor(props){
@@ -7,10 +9,12 @@ export default class Timer extends PureComponent{
         height: '100px',
         width: '100px',
         borderRadius: '50%',
-        margin: '100px auto',
         display: 'grid',
         placeContent: 'center',
-        fontSize: '3rem'
+        fontSize: '3rem',
+        fontWeight: '600',
+        fontFamily: '"Tauri", sans-serif',
+        letterSpacing: '4px'
     }
     this.state = {timer:30};
   }
@@ -25,7 +29,7 @@ export default class Timer extends PureComponent{
 
   add=()=>{
     // console.log('still running')
-    this.setState(prev=>({timer: prev.timer-1}));
+    // this.setState(prev=>({timer: prev.timer-1}));
   }
 
   resetTimer=()=>{
@@ -43,7 +47,16 @@ export default class Timer extends PureComponent{
     
     return (
       <div className='timer' style={this.styles}>
-        {this.state.timer}
+        <CircularProgressbar
+        value={(this.state.timer*100)/30}
+        text={`${this.state.timer}`}
+        styles={buildStyles({
+          textColor: '#fff',
+          pathColor: 'orange',
+          trailColor: 'black',
+          textSize: '2.4rem'
+        })}
+      />
       </div>
     )
   }

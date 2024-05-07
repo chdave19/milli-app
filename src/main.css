@@ -1,169 +1,437 @@
-.main{
-    height: 100vh;
-    width: 100vw;
-    background-color: rgb(0, 0, 90);
-    font-family: sans-serif;
-    position: relative;
+.main {
+  min-height: 100vh;
+  max-width: 100vw;
+  font-family: sans-serif;
+  position: relative;
+  overflow-x: hidden;
 }
 
-.mon{
-    height: 60%;
-    background-color: red;
-    display: flex;
-    justify-content: flex-end;
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBCnKDLB6OQAhCtIcQBpLi4ABab25xYjk58L_OV1FuNg&s);
-    background-size: 100% 100%;
-}
-
-.ans{
-    height: 40%;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding-inline: 1rem;
-}
-
-.ques{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    color: aliceblue;
-    text-align: center;
-    padding-top: 0.8rem;
-}
-
-.ans ul{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
-    line-height: 1.2;
-}
-
-.ans ul li{
-    border-radius: 12px;
-    width: 40%;
-    display: grid;
-    place-content: center;
-    border: 2px solid rgb(255, 255, 255);
-    font-size: 1.8rem;
-    color: aliceblue;
-    padding: 1.5rem;
-    cursor: pointer;
-}
-
-.fail{
-    height: 100vh;
-    width: 100vw;
-    background-color: black;
-    color: aliceblue;
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-    justify-content: center;
-    align-items: center;
-    font-size: 4rem;
-}
-
-.timer{
+.game-banner{
     position: absolute;
-    left: calc(50% - 50px);
-    top: 15%;
-    color: aliceblue;
-    border: 2px solid aliceblue;
-    background-color: black;
+    top: 10px;
+    left: calc(50% - 150px);
+    margin-bottom: 2rem;
 }
 
-.amount{
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(0, 0, 0);
-    color: aliceblue;
-    /* gap: 2px; */
-    justify-content: space-between;
-    font-size: 1rem;
-    list-style: none;
-    width: 20%;
-    
+.game-banner img{
+    width: 300px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
 }
 
-.amount li{
-    width: 100%;
-    padding-left: 20px;
-    padding-block: 4px;
+
+.mon {
+  min-height: 470px;
+  display: flex;
+  justify-content: flex-end;
+  background-size: 100% 100%;
+  position: relative;
 }
 
-.li-bg-grey{
-    background-color: rgb(6, 3, 50);
+.ans {
+  min-height: 40%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-inline: 1rem;
+  padding-bottom: 2rem;
 }
 
-.li-bg-green{
-   background-color: rgb(9, 190, 9);
+.ques {
+  width: calc(70% + 3.2rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  color: aliceblue;
+  text-align: center;
+  padding-block: 1rem;
+  position: relative;
+  background-color: rgb(14, 4, 77);
+  max-width: 800px;
+  border-radius: 42px;
+  border: 2px solid orange;
+  padding-inline: 0.6rem;
+  line-height: 1.2;
+  font-family: "Poetsen One", sans-serif;
 }
 
-.failed{
-    animation-name: failed;
-    animation-duration: 6s;
+.ques::before {
+    content: "";
+    background-color: orange;
+    height: 2px;
+    width: 1000px;
+    top: calc(50% - 1px);
+    right: 100%;
+    position: absolute;
+    z-index: -999;
+  }
+  
+  .ques::after {
+    content: "";
+    background-color: orange;
+    height: 2px;
+    width: 1000px;
+    top: calc(50% - 2px);
+    left: 100%;
+    position: absolute;
+    z-index: 1;
+  }
+
+.ans ul {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.2;
+  list-style-type: circle;
 }
 
-.correct-bg{
-    background-color: rgb(9, 190, 9);
-    animation-name: static;
-    animation-duration: 6s;
+.ans ul li {
+  border-radius: 42px;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid orange;
+  font-size: 1.4rem;
+  color: aliceblue;
+  padding: 1.5rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 22;
+  background-color: rgb(14, 4, 77);
+  max-width: 400px;
+  font-family: "Poetsen One", sans-serif;
+  /* clip-path: polygon(7% 0, 93% 0, 100% 50%, 93% 100%, 7% 100%, 0% 50%); */
+  /* clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 100%); */
+  /* mask-image: linear-gradient(to bottom, transparent 50%, black 50%); */
+  
+}
+
+.ans ul li:before {
+  content: "";
+  background-color: orange;
+  height: 2px;
+  width: 1000px;
+  top: calc(50% - 1px);
+  right: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+.ans ul li:after {
+  content: "";
+  background-color: orange;
+  height: 2px;
+  width: 1000px;
+  top: calc(50% - 1px);
+  left: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+.ans ul li:is(:nth-child(2), :nth-child(3))::before{
+    z-index: -44;
+    width: 1.5rem;
+}
+
+.ans ul li:is(:nth-child(1), :nth-child(2))::after{
+    z-index: -44;
+    width: 1.5rem;
+}
+
+.fail {
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+}
+
+.timer {
+  position: absolute;
+  left: calc(50% - 50px);
+  bottom: 4%;
+  color: aliceblue;
+  border: 4px solid #626DA9;
+  background-color: black;
+  margin: 0;
+}
+
+.amount {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(6, 3, 50);
+  color: aliceblue;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  list-style: none;
+  width: 20%;
+  border: 2px solid #626DA9;
+  border-radius: 8px;
+  margin: 1rem;
+  padding-block: 10px;
+  overflow: hidden;
+  padding-top: 1.2rem;
+}
+
+.amount li {
+  width: 70%;
+  padding-left: 20px;
+  padding-block: 4px;
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  display: flex;
+  gap: 1rem;
+  position: relative;
+  justify-content: center;
+}
+
+.amount li::before {
+    content: "";
+    background-color: inherit;
+    height: 2px;
+    width: 1000px;
+    top: calc(50% - 1px);
+    right: 100%;
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .amount li::after {
+    content: "";
+    background-color: inherit;
+    height: 2px;
+    width: 1000px;
+    top: calc(50% - 1px);
+    left: 100%;
+    position: absolute;
+    z-index: 1;
+  }
+
+.li-bg-grey {
+  background-color: transparent;
+  color: orange;
+}
+
+.li-bg-green {
+  background-color: orange;
+  border-radius: 42px;
+  color: #fff;
+}
+
+.failed {
+  animation-name: failed;
+  animation-duration: 6s;
+}
+
+.correct-bg {
+  background-color: rgb(17, 167, 6);
+  animation-name: static;
+  animation-duration: 6s;
 }
 
 @keyframes static {
-    0%{
-        background-color: rgba(255, 255, 0, 0);
-    }
-    25%{
-        background-color: rgba(188, 188, 34, 0);
-    }
-    50%{
-        background-color: rgba(255, 255, 40, 0);
-    }
-    100%{
-        background-color: rgb(30, 247, 15);
-    }
+  0% {
+    background-color: rgba(255, 255, 0, 0);
+  }
+  25% {
+    background-color: rgba(188, 188, 34, 0);
+  }
+  50% {
+    background-color: rgba(255, 255, 40, 0);
+  }
+  100% {
+    background-color: rgb(17, 167, 6);
+  }
 }
 
 @keyframes failed {
-    0%{
-        background-color: yellow;
-    }
-    15%{
-        background-color: rgba(188, 188, 34, 0.094);
-    }
-    30%{
-        background-color: rgb(255, 255, 40);
-    }
-    
-    100%{
-        background-color: red;
-    }
+  0% {
+    background-color: yellow;
+  }
+  15% {
+    background-color: rgba(188, 188, 34, 0.2);
+  }
+  30% {
+    background-color: rgb(255, 255, 40);
+  }
+
+  100% {
+    background-color: red;
+  }
 }
 
-.correct{
-    animation-name: correct;
-    animation-duration: 6s;
+.correct {
+  animation-name: correct;
+  animation-duration: 6s;
 }
 
 @keyframes correct {
-    0%{
-        background-color: yellow;
+  0% {
+    background-color: yellow;
+  }
+  15% {
+    background-color: rgba(188, 188, 34, 0.2);
+  }
+  30% {
+    background-color: rgb(255, 255, 40);
+  }
+  100% {
+    background-color: rgb(30, 247, 15);
+  }
+}
+
+
+.menu, .close, .info{
+    font-size: 2.4rem;
+    color: orange;
+    position: absolute;
+    top: 10px;
+    outline: none;
+    border: none;
+    font-weight: 600;
+    display: none;
+    cursor: pointer;
+    width: max-content;
+    z-index: 999;
+    background-color: transparent;
+}
+
+.menu>*, .close>*{
+    pointer-events: none;
+}
+
+.main .info{
+    display: block;
+    right: 10px;
+}
+
+ul.menu-active{
+  transform: translateX(0px);
+}
+
+.menu{
+    left: 10px;
+}
+
+ul .close{
+    left: 10px;
+}
+
+
+@media (max-width: 1278.5px){
+    .ans ul li:is(:nth-child(2), :nth-child(4))::before{
+        z-index: -44;
+        width: 1.5rem;
     }
-    15%{
-        background-color: rgba(188, 188, 34, 0.094);
+
+    .ans ul li:is(:nth-child(1), :nth-child(3))::before{
+        z-index: -44;
+        width: 1000px;
     }
-    30%{
-        background-color: rgb(255, 255, 40);
+    .ans ul li:is(:nth-child(2), :nth-child(4))::after{
+        z-index: -44;
+        width: 1000px;
     }
-    100%{
-        background-color: rgb(30, 247, 15);
+    
+    .ans ul li:is(:nth-child(1), :nth-child(3))::after{
+        z-index: -44;
+        width: 1.5rem;
     }
 }
+
+@media (max-width: 854px){
+   .main .ans ul li::before, .main .ans ul li::after{
+        z-index: -44;
+        width: 1000rem;
+    }
+    
+}
+
+@media (max-width: 802px){
+    :root{
+        font-size: 12px;
+    }
+
+    .ques{
+        width: 80%;
+        border-width: 2px;
+        font-size: 1.4rem;
+    }
+
+    .ques::before, .ques::after{
+        height: 2px
+     }
+
+    .ans ul li {
+        width: 85%;
+        font-size: 1.3rem;
+        border-width: 2px;
+      }
+
+     .ans ul li::before, .ans ul li::after{
+        height: 2px
+     }
+}
+
+@media (max-width: 960px){
+    .amount {
+        font-size: 1rem;
+        list-style-type: circle;
+        width: 60%;
+        border: 2px solid #626DA9;
+        border-radius: 0px;
+        margin: 0rem;
+        padding-block: 10px;
+        overflow: hidden;
+        position: absolute;
+        right: 0;
+        height: 100vh;
+        z-index: 999;
+        transform: translateX(9999px);
+        transition: all 0.6s ease-in;
+      }
+
+      .menu, .close{
+        display: block;
+      }
+}
+
+
+@media (max-width: 534px){
+    .ques{
+        width: 95%;
+    }
+
+    .ans ul li {
+        width: 85%;
+      }
+
+}
+
+@media (max-width: 320px){
+    .game-banner{
+        width: 100vw;
+        padding: 12px;
+        top: 46px;
+    }
+    .game-banner img{
+        width: 100%;
+
+    }
+
+}
+
