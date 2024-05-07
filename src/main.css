@@ -148,7 +148,7 @@
 .fail {
   height: 100vh;
   width: 100vw;
-  background-color: black;
+  /* background-color: black; */
   color: aliceblue;
   display: flex;
   flex-direction: column;
@@ -163,7 +163,6 @@
   left: calc(50% - 50px);
   bottom: 4%;
   color: aliceblue;
-  border: 4px solid #626DA9;
   background-color: black;
   margin: 0;
 }

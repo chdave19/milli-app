@@ -14,9 +14,9 @@ export default class Timer extends PureComponent{
         fontSize: '3rem',
         fontWeight: '600',
         fontFamily: '"Tauri", sans-serif',
-        letterSpacing: '4px'
+        letterSpacing: '4px',
     }
-    this.state = {timer:30};
+    this.state = {timer:30, timerPathColor: 'rgb(30, 247, 15)'};
   }
 
   componentDidMount(){ 
@@ -29,7 +29,7 @@ export default class Timer extends PureComponent{
 
   add=()=>{
     // console.log('still running')
-    // this.setState(prev=>({timer: prev.timer-1}));
+    this.setState(prev=>({timer: prev.timer-1}));
   }
 
   resetTimer=()=>{
@@ -41,6 +41,8 @@ export default class Timer extends PureComponent{
   componentDidUpdate(prevProps){
     this.state.timer<=0 && this.props.stopGame();
     prevProps.questionNo !== this.props.questionNo && this.resetTimer();
+    this.state.timer === 20 && this.setState({timerPathColor: 'orange'});
+    this.state.timer === 10 && this.setState({timerPathColor: 'red'})
   }
   
   render() {
@@ -52,7 +54,7 @@ export default class Timer extends PureComponent{
         text={`${this.state.timer}`}
         styles={buildStyles({
           textColor: '#fff',
-          pathColor: 'orange',
+          pathColor: this.state.timerPathColor,
           trailColor: 'black',
           textSize: '2.4rem'
         })}

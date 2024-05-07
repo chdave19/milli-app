@@ -8,6 +8,11 @@ import wait from "./sounds/wait.mp3";
 import wrong from "./sounds/wrong.mp3";
 import play from "./sounds/play.mp3";
 import correct from "./sounds/correct.mp3";
+import Footer from "./Footer";
+import Balloon from './Balloon';
+import Ribbon from './Ribbon';
+
+
 
 function App(props) {
   const [game, setGame] = useState(false);
@@ -18,7 +23,8 @@ function App(props) {
   const dotRef = useRef(dots);
   const checkDataRef = useRef(dataFetched);
   const [data, setData] = useState(null);
-
+  const [fetchNewData, setFetchNewData] = useState(false);
+  const [newDataFetched, setNewDataFetched] = useState(false);
 
   const start = () => {
     track.addSound(wait, "wait");
@@ -47,6 +53,21 @@ function App(props) {
     );
   };
 
+  // GET A FRESH SET OF QUESTIONS WHEN GAME RESTARTS
+  function getFreshData(){
+    fetch("https://opentdb.com/api.php?amount=50&type=multiple")
+      .then((response) => response.json())
+      .then((data) => {
+        setNewDataFetched(true);
+        setFetchNewData(false);
+        setData(QBank1(data.results));
+        // console.log("new data fetched")
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
+
   useEffect(() => {
     dotRef.current = dots;
     checkDataRef.current = dataFetched;
@@ -56,20 +77,33 @@ function App(props) {
       setTimeout(() => {
         setCheckDataFetched(null);
         setGame(true);
-        track.playSound("wait");
       }, 2000);
     }
-  }, [dots, dataFetched, checkdataFetched, track]);
+
+    fetchNewData && getFreshData();
+  }, [dots, dataFetched, checkdataFetched, track, fetchNewData]);
+
+
 
   return (
     <>
+    <div className="anime">
+      {[...Array(250)].map((_, j) => (
+        <Ribbon key={j} j={j} color={`hsl(${j * 75 + 45}, 100%, 50%)`} />
+      ))}
+    </div>
       {game && dataFetched ? (
-        <Main data={data} audio={track}/>
+        <Main data={data} audio={track} setFetchNewData={setFetchNewData} newDataFetched={newDataFetched} setNewDataFetched={setNewDataFetched}/>
       ) : (
+        <>
         <div className="start">
-          {checkdataFetched && <span className="load">{`Please wait${dots}`}</span>}
+          {checkdataFetched && (
+            <span className="load">{`Please wait${dots}`}</span>
+          )}
           <button onClick={() => start()}>Start</button>
         </div>
+        <Footer/>
+        </>
       )}
     </>
   );

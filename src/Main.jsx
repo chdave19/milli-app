@@ -5,6 +5,10 @@ import Timer from "./Timer";
 import Money from "./Money";
 import Banner from "./milli-game-bg.png";
 import { AiOutlineBars,AiTwotoneInfoCircle } from "react-icons/ai";
+import Footer from "./Footer";
+import Sad from "./sad.png";
+import Happy from "./happy.png";
+
 
 
 export default class Main extends Component {
@@ -72,15 +76,7 @@ export default class Main extends Component {
 
   restartGame = () => {
     this.props.audio.playSound("wait");
-    this.setState((prev) => ({
-      no: 1,
-      stop: false,
-      selectedAnswer: null,
-      ansData: {},
-      listClassFailed: "",
-      question: this.randomiseQuestion(prev.question),
-      earned: "$0",
-    }));
+    this.props.setFetchNewData(true);
   };
 
   setEarned = (earn) => {
@@ -118,11 +114,28 @@ export default class Main extends Component {
 
   onMenu = () => {
     this.setState({ menuActive: "menu-active" });
-    console.log('menu')
   };
 
   resetMenu =()=>{
     this.setState({ menuActive: "" });
+  }
+
+  cleanUpUpdate=()=>{
+    // console.log('update is new')
+    this.props.setNewDataFetched(false);
+    this.setState((prev) => ({
+      no: 1,
+      stop: false,
+      selectedAnswer: null,
+      ansData: {},
+      listClassFailed: "",
+      question: this.props.data,
+      earned: "$0",
+    }));
+  }
+
+  componentDidUpdate(){
+    this.props.newDataFetched && this.cleanUpUpdate();
   }
 
   render() {
@@ -174,17 +187,28 @@ export default class Main extends Component {
           animateFail={listClassFailed}
           selectedAnswer={selectedAnswer}
         />
+        <Footer/>
       </div>
+      
     ) : (
+      <>
       <div className="fail">
         {this.state.no === this.state.questionList+1 ? (
+          <>
           <span>Congratulations</span>
+          <figure className="sad"><img src={Happy} alt="" /></figure>
+          </>
         ) : (
-          <span style={styles}>Failed</span>
+          <>
+          <span style={styles} className="fail-text">Failed</span>
+          <figure className="sad"><img src={Sad} alt="" /></figure>
+          </>
         )}
-        <span>{`You won ${earned}`}</span>
-        <button onClick={this.restartGame}>Play again</button>
+        <span className="earn">{`Amount earned: ${earned}`}</span>
+        <button onClick={this.restartGame} className="fail-btn">Play again</button>
       </div>
+      <Footer/>
+      </>
     );
   }
 }
