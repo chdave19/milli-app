@@ -28,7 +28,8 @@ export default class Main extends Component {
       ansData: {},
       clickable: true,
       menuActive: "",
-      questionList: 15
+      questionList: 15,
+      addLoad: false, 
     };
   }
 
@@ -77,6 +78,7 @@ export default class Main extends Component {
   restartGame = () => {
     this.props.audio.playSound("wait");
     this.props.setFetchNewData(true);
+    this.setState({addLoad: true});
   };
 
   setEarned = (earn) => {
@@ -123,6 +125,7 @@ export default class Main extends Component {
   cleanUpUpdate=()=>{
     // console.log('update is new')
     this.props.setNewDataFetched(false);
+
     this.setState((prev) => ({
       no: 1,
       stop: false,
@@ -131,6 +134,7 @@ export default class Main extends Component {
       listClassFailed: "",
       question: this.props.data,
       earned: "$0",
+      addLoad: false,
     }));
   }
 
@@ -149,6 +153,7 @@ export default class Main extends Component {
       interval,
       listClassFailed,
       menuActive,
+      addLoad,
     } = this.state;
 
     return !stop && this.state.no <= this.state.questionList ? (
@@ -206,6 +211,7 @@ export default class Main extends Component {
         )}
         <span className="earn">{`Amount earned: ${earned}`}</span>
         <button onClick={this.restartGame} className="fail-btn">Play again</button>
+        {addLoad && <span className="load" style={{marginTop: "1rem", top: "87%"}}></span>}
       </div>
       <Footer/>
       </>

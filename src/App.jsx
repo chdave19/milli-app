@@ -77,8 +77,9 @@ function App(props) {
       clearInterval(checkdataFetched);
       setTimeout(() => {
         setCheckDataFetched(null);
-        setDisplay("none")
+        setDisplay("none");
         setGame(true);
+        track.playSound("wait");
       }, 2000);
     }
 
@@ -100,7 +101,7 @@ function App(props) {
         <>
         <div className="start">
           {checkdataFetched && (
-            <span className="load">{`Please wait${dots}`}</span>
+            <span className="load"></span>
           )}
           <button onClick={() => start()}>Start</button>
         </div>
