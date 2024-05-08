@@ -73,7 +73,7 @@ function App(props) {
     dotRef.current = dots;
     checkDataRef.current = dataFetched;
 
-    if (checkDataRef.current) {
+    if (checkDataRef.current && checkdataFetched) {
       clearInterval(checkdataFetched);
       setTimeout(() => {
         setCheckDataFetched(null);
@@ -91,7 +91,7 @@ function App(props) {
   return (
     <>
     <div className={`anime ${display}`} >
-      {[...Array(250)].map((_, j) => (
+      {[...Array(500)].map((_, j) => (
         <Ribbon key={j} j={j} color={`hsl(${j * 75 + 45}, 100%, 50%)`} />
       ))}
     </div>

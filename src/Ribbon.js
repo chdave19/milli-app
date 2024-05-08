@@ -31,7 +31,7 @@ const Ribbon = ({ color, j }) => {
         height: '50px',
         backgroundColor: color,
         position: 'absolute',
-        left: `${0 + j * 10}%`
+        left: `${0 + j * 2}%`
       }}
     />
   );

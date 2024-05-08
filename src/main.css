@@ -363,7 +363,7 @@ ul .close{
     }
 }
 
-@media (max-width: 854px){
+@media (max-width: 855px){
    .main .ans ul li::before, .main .ans ul li::after{
         z-index: -44;
         width: 1000rem;
@@ -371,7 +371,7 @@ ul .close{
     
 }
 
-@media (max-width: 802px){
+@media (max-width: 804px){
     :root{
         font-size: 12px;
     }

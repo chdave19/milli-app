@@ -210,7 +210,7 @@ export default class Main extends Component {
         )}
         <span className="earn">{`Amount earned: ${earned}`}</span>
         <button onClick={this.restartGame} className="fail-btn">Play again</button>
-        {addLoad && <span className="load" style={{marginTop: "1rem", top: "87%"}}></span>}
+        {addLoad && <span className="load" style={{marginTop: "1rem", top: "92%"}}></span>}
       </div>
       <Footer/>
       </>

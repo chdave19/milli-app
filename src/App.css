@@ -48,10 +48,10 @@ body{
   display: block;
   position: absolute;
   top: 40px;
-  width: 50px;
+  width: 40px;
   aspect-ratio: 1/1;
   border: 3px solid orange;
-  left: calc(50% - 25px);
+  left: calc(50% - 20px);
   border-left-color: transparent;
   border-radius: 50%;
   animation-name: turn;
