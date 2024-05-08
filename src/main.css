@@ -162,6 +162,7 @@
     overflow: hidden;
     width: 100vw;
     pointer-events: none;
+    z-index: 999;
 }
 
 .timer {

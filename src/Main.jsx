@@ -76,7 +76,6 @@ export default class Main extends Component {
   };
 
   restartGame = () => {
-    this.props.audio.playSound("wait");
     this.props.setFetchNewData(true);
     this.setState({addLoad: true});
   };
@@ -125,7 +124,7 @@ export default class Main extends Component {
   cleanUpUpdate=()=>{
     // console.log('update is new')
     this.props.setNewDataFetched(false);
-
+    this.props.audio.playSound("wait");
     this.setState((prev) => ({
       no: 1,
       stop: false,
