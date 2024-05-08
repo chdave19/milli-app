@@ -25,6 +25,7 @@ function App(props) {
   const [data, setData] = useState(null);
   const [fetchNewData, setFetchNewData] = useState(false);
   const [newDataFetched, setNewDataFetched] = useState(false);
+  const [display, setDisplay] = useState("");
 
   const start = () => {
     track.addSound(wait, "wait");
@@ -76,6 +77,7 @@ function App(props) {
       clearInterval(checkdataFetched);
       setTimeout(() => {
         setCheckDataFetched(null);
+        setDisplay("none")
         setGame(true);
       }, 2000);
     }
@@ -87,7 +89,7 @@ function App(props) {
 
   return (
     <>
-    <div className="anime">
+    <div className={`anime ${display}`} >
       {[...Array(250)].map((_, j) => (
         <Ribbon key={j} j={j} color={`hsl(${j * 75 + 45}, 100%, 50%)`} />
       ))}

@@ -1,8 +1,11 @@
 
 body{
   background: rgb(11,11,19);
-  background: radial-gradient(circle, rgba(11,11,19,1) 9%, rgba(9,9,121,1) 68%, rgba(18,53,235,1) 94%); 
+  background: radial-gradient(circle, rgba(11,11,19,1) 9%, rgba(9,9,121,1) 68%, rgba(18,53,235,1) 94%);
   user-select: none;
+  -webkit-user-select: none;
+  overflow-x: hidden;
+  height: max-content;
 }
 
 
@@ -51,7 +54,7 @@ body{
 
 
 .footer{
-  min-height: 80px;
+  height: 80px;
   background-color: rgb(0, 0, 0);
   border-left: none;
   border-right: none;
@@ -98,6 +101,7 @@ body{
   font-family: "Poetsen One", sans-serif;
   font-weight: 400;
   font-style: normal;
+  cursor: pointer;
 }
 
 .sad img{
@@ -112,4 +116,12 @@ body{
   font-family: "Poetsen One", sans-serif;
   font-weight: 400;
   font-style: normal;
+  display: block;
+  text-align: center;
+}
+
+@media (max-width: 700px){
+  .fail{
+    font-size: 1rem;
+  }
 }

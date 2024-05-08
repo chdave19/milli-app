@@ -16,7 +16,7 @@ export default class Timer extends PureComponent{
         fontFamily: '"Tauri", sans-serif',
         letterSpacing: '4px',
     }
-    this.state = {timer:30, timerPathColor: 'rgb(30, 247, 15)'};
+    this.state = {timer:40, timerPathColor: 'rgb(30, 247, 15)'};
   }
 
   componentDidMount(){ 
@@ -33,7 +33,7 @@ export default class Timer extends PureComponent{
   }
 
   resetTimer=()=>{
-    this.setState({timer: 30});
+    this.setState({timer: 40});
     this.props.resetAns();
     setTimeout(()=>{this.props.setTimer(setInterval(this.add, 1000))});
   }
@@ -41,7 +41,7 @@ export default class Timer extends PureComponent{
   componentDidUpdate(prevProps){
     this.state.timer<=0 && this.props.stopGame();
     prevProps.questionNo !== this.props.questionNo && this.resetTimer();
-    this.state.timer === 20 && this.setState({timerPathColor: 'orange'});
+    this.state.timer === 25 && this.setState({timerPathColor: 'orange'});
     this.state.timer === 10 && this.setState({timerPathColor: 'red'})
   }
   
@@ -50,7 +50,7 @@ export default class Timer extends PureComponent{
     return (
       <div className='timer' style={this.styles}>
         <CircularProgressbar
-        value={(this.state.timer*100)/30}
+        value={(this.state.timer*100)/40}
         text={`${this.state.timer}`}
         styles={buildStyles({
           textColor: '#fff',
