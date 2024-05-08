@@ -1,17 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.d2c19c2d.css",
-    "main.js": "/static/js/main.fe59663e.js",
+    "main.css": "/static/css/main.61d47b35.css",
+    "main.js": "/static/js/main.12753ad9.js",
     "static/media/wait.mp3": "/static/media/wait.30e329da76ae665702f7.mp3",
+    "static/media/milli-game-bg.png": "/static/media/milli-game-bg.52c329c3395d50aa6084.png",
+    "static/media/happy.png": "/static/media/happy.9be88cd437865a702b57.png",
+    "static/media/sad.png": "/static/media/sad.36be38b2ec1fc59160d2.png",
     "static/media/play.mp3": "/static/media/play.8e5f6d1d81d4e1414b95.mp3",
     "static/media/correct.mp3": "/static/media/correct.160572d72c858155072e.mp3",
     "static/media/wrong.mp3": "/static/media/wrong.e946821894ae9b0a0d6f.mp3",
     "index.html": "/index.html",
-    "main.d2c19c2d.css.map": "/static/css/main.d2c19c2d.css.map",
-    "main.fe59663e.js.map": "/static/js/main.fe59663e.js.map"
+    "main.61d47b35.css.map": "/static/css/main.61d47b35.css.map",
+    "main.12753ad9.js.map": "/static/js/main.12753ad9.js.map"
   },
   "entrypoints": [
-    "static/css/main.d2c19c2d.css",
-    "static/js/main.fe59663e.js"
+    "static/css/main.61d47b35.css",
+    "static/js/main.12753ad9.js"
   ]
 }

@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { Analytics } from "@vercel/analytics/react"
 // import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-    <App><h1>Thumb Speedometer</h1></App>    
+    <App><Analytics/></App>    
   </>
 );
 
