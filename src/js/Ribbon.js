@@ -28,7 +28,7 @@ const Ribbon = ({ color, j }) => {
       animate={() => ribbonVariants.animate(j)}
       style={{
         width: '5px',
-        height: '50px',
+        height: '32px',
         backgroundColor: color,
         position: 'absolute',
         left: `${0 + j * 2}%`

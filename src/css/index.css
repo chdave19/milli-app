@@ -1,0 +1,34 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+.offline-popup{
+  position: absolute;
+  top: calc(50vh - 150px);
+  left: calc(50vw - 300px);
+  width: 600px;
+  aspect-ratio: 2/1;
+  z-index: 9999;
+  background-color: aliceblue;
+  transition: all 600ms linear;
+}
+
+.slide-out{
+ transform: translateY(-9999px);
+}
+
+.slide-in{
+  transform: translateY(0px);
+}

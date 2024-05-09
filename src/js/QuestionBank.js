@@ -1,48 +1,68 @@
-
 // Object { type: "multiple",
 // difficulty: "easy",
 // category: "General Knowledge",
 // question: "Who invented the first ever chocolate bar, in 1847?",
-// correct_answer: "Joseph Fry", 
+// correct_answer: "Joseph Fry",
 // incorrect_answers: (3) […] }
-
 
 //
 
-export const QBank1 =(response)=>{
+// 0: "Entertainment: Comics"
+// 1: "Entertainment: Japanese Anime &amp; Manga"
+// 2: "Entertainment: Film"
+// 3: "Entertainment: Video Games"
+// 4: "History"
+// 5: "Entertainment: Television" ​​
+// 6: "Geography"
+// 7: "Vehicles"
+// 8: "Mythology"
+// 9: "Entertainment: Music"
+// 10: "Animals"
+// 11: "Science: Computers"
+// 12: "General Knowledge"
+// 13: "Entertainment: Musicals &amp; Theatres"
+// 14: "Science &amp; Nature"
+// 15: "Science: Mathematics"
+// 16: "Entertainment: Cartoon &amp; Animations"
+// 17: "Sports"
+
+export const QBank1 = (response) => {
   const arr = [];
-  response.forEach(value=>{
+  const setCat = [];
+  response.forEach((value) => {
+    setCat.push(value.category);
     const obj = {};
     obj.question = decodeTextData(value.question);
+    obj.category = decodeTextData(value.category);
     const answer = [];
     const correct = {};
     correct.ans = decodeTextData(value.correct_answer);
     correct.correct = true;
-    answer.push(correct)
-    value.incorrect_answers.forEach(value1=>{
-      const obj1 = {}
+    answer.push(correct);
+    value.incorrect_answers.forEach((value1) => {
+      const obj1 = {};
       obj1.ans = decodeTextData(value1);
       obj1.correct = false;
-      answer.push(obj1)
-    })
+      answer.push(obj1);
+    });
     obj.answer = randomiseQuestion(answer);
-    arr.push(obj)
-  })
-
+    arr.push(obj);
+  });
+  // console.log(new Set(setCat), setCat);
   return randomiseQuestion(arr.concat(GeneralKnowledge1));
-}
+};
 
-const decodeTextData=(text)=>{
-  let htmlParser = document.createElement('textarea');
+const decodeTextData = (text) => {
+  let htmlParser = document.createElement("textarea");
   htmlParser.innerHTML = text;
 
   return htmlParser.value;
-}
+};
 
-
-const GeneralKnowledge1 =randomiseQuestion([
+const GeneralKnowledge1 = randomiseQuestion([
   {
     question: "Which of these is a primary color?",
+    category: "General Knowledge",
     answer: randomiseQuestion([
       { ans: "Purple", correct: false },
       { ans: "Red", correct: true },
@@ -51,7 +71,9 @@ const GeneralKnowledge1 =randomiseQuestion([
     ]),
   },
   {
-    question: "What is the name of the biggest country in the world by landmass?",
+    question:
+      "What is the name of the biggest country in the world by landmass?",
+      category: "Geography",
     answer: randomiseQuestion([
       { ans: "USA", correct: false },
       { ans: "China", correct: false },
@@ -61,6 +83,7 @@ const GeneralKnowledge1 =randomiseQuestion([
   },
   {
     question: "What is the capital of Australia?",
+    category: "Geography",
     answer: randomiseQuestion([
       { ans: "Canberra", correct: true },
       { ans: "Sydney", correct: false },
@@ -70,6 +93,7 @@ const GeneralKnowledge1 =randomiseQuestion([
   },
   {
     question: "Pick the odd one out",
+    category: "Geography",
     answer: randomiseQuestion([
       { ans: "Chile", correct: true },
       { ans: "Estonia", correct: false },
@@ -79,6 +103,7 @@ const GeneralKnowledge1 =randomiseQuestion([
   },
   {
     question: "The first world war started in which year?",
+    category: "History",
     answer: randomiseQuestion([
       { ans: "1917", correct: false },
       { ans: "1940", correct: false },
@@ -88,6 +113,7 @@ const GeneralKnowledge1 =randomiseQuestion([
   },
   {
     question: "Which of these vitamins deficiency account for Scurvy?",
+    category: "Science & Nature",
     answer: randomiseQuestion([
       { ans: "Vitamin A", correct: false },
       { ans: "Vitamin B", correct: false },
@@ -97,18 +123,13 @@ const GeneralKnowledge1 =randomiseQuestion([
   },
 ]);
 
-  function randomiseQuestion(arr){
-    let randArr = arr;
-    for(let i=randArr.length-1; i>=0; i--){
-        let temp = Math.floor(Math.random()*i);
-        let tempV = randArr[temp];
-        randArr[temp] = randArr[i];
-        randArr[i] = tempV;
-    }
-    return randArr;
+function randomiseQuestion(arr) {
+  let randArr = arr;
+  for (let i = randArr.length - 1; i >= 0; i--) {
+    let temp = Math.floor(Math.random() * i);
+    let tempV = randArr[temp];
+    randArr[temp] = randArr[i];
+    randArr[i] = tempV;
   }
-
-  
-
-
-
+  return randArr;
+}

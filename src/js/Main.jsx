@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import "./main.css";
+import "../css/main.css";
 import Ans from "./Ans";
 import Timer from "./Timer";
 import Money from "./Money";
-import Banner from "./milli-game-bg.png";
+import Banner from "../img/milli-game-bg.png";
 import { AiOutlineBars,AiTwotoneInfoCircle } from "react-icons/ai";
 import Footer from "./Footer";
-import Sad from "./sad.png";
-import Happy from "./happy.png";
+import Sad from "../img/sad.png";
+import Happy from "../img/happy.png";
 
 
 
@@ -158,7 +158,7 @@ export default class Main extends Component {
     return !stop && this.state.no <= this.state.questionList ? (
       <div className="main">
         <figure className="game-banner">
-          <img src={Banner} alt="" />
+          <img src={Banner} alt=""/>
         </figure>
         <button className="menu" onClick={() => this.onMenu()}>  
           <AiOutlineBars />
@@ -205,7 +205,7 @@ export default class Main extends Component {
         ) : (
           <>
           <span style={styles} className="fail-text">Failed</span>
-          <figure className="sad"><img src={Sad} alt="" /></figure>
+          <figure className="sad" ><img src={Sad} alt="" /></figure>
           </>
         )}
         <span className="earn">{`Amount earned: ${earned}`}</span>
