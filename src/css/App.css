@@ -1,10 +1,12 @@
 
 body{
-  background: rgb(11,11,19);
-  background: radial-gradient(circle, rgba(11,11,19,1) 9%, rgba(9,9,121,1) 68%, rgba(18,53,235,1) 94%);
+  /* background: rgb(8,8,43);
+  background: radial-gradient(circle, rgba(8,8,43,1) 39%, rgba(9,9,121,1) 68%, rgba(18,53,235,1) 94%);  */
+  background-size: 100vw;
   user-select: none;
   -webkit-user-select: none;
   overflow-x: hidden;
+  background-color: black;
 }
 
 
@@ -16,14 +18,40 @@ body{
   width: 100vw;
   gap: 2rem;
   flex-direction: column;
-  background-image: url("../img/milli-game-bg.png");
+  /* background-image: url("../img/milli-game-bg.png");
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
   position: relative;
 }
 
+.start-banner{
+  position: absolute;
+  top: calc(50vh - 350px);
+  left: calc(50vw - 300px);
+  width: 600px;
+  z-index: -1;
+  animation: rotate;
+  animation-duration: 60s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  /* animation-direction: reverse; */
+}
 
-.start button{
+@keyframes rotate {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg)
+  }
+}
+
+.start-banner img{
+  width: 100%;
+}
+
+
+.start .start-btn{
   border: 4px solid orange;
   background-color: #000;
   font-size: 3rem;
@@ -34,9 +62,10 @@ body{
   font-weight: 400;
   font-style: normal;
   border-radius: 12px;
+  text-decoration: none;
 }
 
-.start button:is(:hover, :focus){
+.start .start-btn:is(:hover, :focus){
   color: orange;
   transition: all 0.4s;
 }
@@ -76,7 +105,7 @@ body{
 
 
 .footer{
-  height: 80px;
+  min-height: 80px;
   background-color: rgb(0, 0, 0);
   padding-top: 2rem;
   padding-inline: 2rem;

@@ -1,17 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './css/index.css';
-import App from './js/App';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./css/index.css";
+import App from "./js/App";
 import { Analytics } from "@vercel/analytics/react";
-import ErrorBoundary from './js/ErrorBoundary';
+import ErrorBoundary from "./js/ErrorBoundary";
+import {BrowserRouter} from "react-router-dom";
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
-    <ErrorBoundary>
-    <App><Analytics/></App> 
-    </ErrorBoundary>
+    <BrowserRouter>
+      <ErrorBoundary>
+        <App>
+          <Analytics />
+        </App>
+      </ErrorBoundary>
+    </BrowserRouter>
   </>
 );
 // reportWebVitals(console.log);

@@ -1,0 +1,20 @@
+const sportsE = []; done
+const generalKnowledgeE = []; done
+const animalsE = []; done
+const mythologyE = []; done
+const historyE = [];  done
+const entertainmentGamesE = []; done
+const entertainmentAnimeE = []; done
+
+const scienceMathsE = [];
+const entertainmentCartoonE = [];
+const scienceNatureE = [];
+const entertainmentMusicalsE = [];
+const entertainmentMusicE = [];
+const scienceCompE = [];
+const vehiclesE = [];
+const geographyE = [];
+const entertainmentTvE = [];
+const entertainmentFilmsE = [];
+const entertainmentComicsE = [];
+const randQuesE = [];

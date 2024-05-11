@@ -1,14 +1,15 @@
 import "../css/App.css";
 import { useEffect, useRef, useState } from "react";
-import Main from "./Main";
-import { QBank1 } from "./QuestionBank";
+import Home from "./Home";
+import Quiz from "./Quiz";
+import Select from "./Select";
 import SoundSystem from "./SoundSystem";
 import wait from "../soundassets/wait.mp3";
 import wrong from "../soundassets/wrong.mp3";
 import play from "../soundassets/play.mp3";
 import correct from "../soundassets/correct.mp3";
-import Footer from "./Footer";
-import Ribbon from "./Ribbon";
+import { Route, Routes } from "react-router-dom";
+
 
 function App(props) {
   const [game, setGame] = useState(false);
@@ -23,123 +24,116 @@ function App(props) {
   const [popUp, setPopUp] = useState("slide-out");
   const [clickable, setClickable] = useState(true);
   const UIRef = useRef(displayUI);
+  
+  // const start = () => {
+  //   if (clickable) {
+  //     setClickable(false);
+  //     track.addSound(wait, "wait");
+  //     track.addSound(wrong, "wrong");
+  //     track.addSound(play, "play");
+  //     track.addSound(correct, "correct");
 
-  const start = () => {
-    if (clickable) {
-      setClickable(false);
-      track.addSound(wait, "wait");
-      track.addSound(wrong, "wrong");
-      track.addSound(play, "play");
-      track.addSound(correct, "correct");
+  //     fetchMultipleQuestions(2);
+  //     setCheckDataFetched(setInterval(() => {}, 400));
+  //   }
+  // };
 
-      fetchMultipleQuestions(8);
-      setCheckDataFetched(setInterval(() => {}, 400));
-    }
-  };
+  // // GET A FRESH SET OF QUESTIONS WHEN GAME RESTARTS
+  // function getFreshData() {
+  //   fetch("https://opentdb.com/api.php?amount=50&type=multiple")
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setNewDataFetched(true);
+  //       setFetchNewData(false);
+  //       setData(QBank1(data.results));
+  //       // console.log("new data fetched")
+  //     })
+  //     .catch((e) => {
+  //       console.log(e);
+  //     });
+  // }
 
-  // GET A FRESH SET OF QUESTIONS WHEN GAME RESTARTS
-  function getFreshData() {
-    fetch("https://opentdb.com/api.php?amount=50&type=multiple")
-      .then((response) => response.json())
-      .then((data) => {
-        setNewDataFetched(true);
-        setFetchNewData(false);
-        setData(QBank1(data.results));
-        // console.log("new data fetched")
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }
+  // useEffect(() => {
+  //   UIRef.current = displayUI;
+  // fetchMultipleQuestions(2);
+  //   fetchNewData && getFreshData();
+  // }, [fetchNewData, displayUI]);
 
-  useEffect(() => {
-    UIRef.current = displayUI;
+  // async function fetchMultipleQuestions(calls) {
+  //   async function fetchQuestions() {
+  //     try {
+  //       const response = await fetch(
+  //         "https://opentdb.com/api.php?amount=50&type=multiple"
+  //       );
+  //       // if (!response.ok) {
+  //       //   throw new Error(
+  //       //     "Error from server: Error status: " +
+  //       //       response.status +
+  //       //       "==" +
+  //       //       response
+  //       //   );
+  //       // }
+  //       let result = await response.json();
+  //       setUI(true);
+  //       return result;
+  //     } catch (e) {
+  //       console.log(e);
+  //       return null;
+  //     }
+  //   }
+  //   try {
+  //     const timeOffset = 1400;
+  //     let questions = [];
+  //     for (let i = 0; i < calls; i++) {
+  //       await new Promise((resolve) => setTimeout(resolve, timeOffset * i));
+  //       let tempArr = await fetchQuestions();
+  //       if (tempArr && tempArr.results)
+  //         questions = questions.concat(tempArr.results);
+  //     }
+  //     if (UIRef.current) {
+  //       setDataFetched(true);
+  //       setData(QBank1(questions));
+  //       clearInterval(checkdataFetched);
+  //       setTimeout(() => {
+  //         track.playSound("wait");
+  //         setCheckDataFetched(null);
+  //         setDisplay("none");
+  //         setGame(true);
+  //       }, 2500);
+  //     }
+  //   } catch (e) {
+  //     console.log(e);
+  //     setTimeout(() => {
+  //       setPopUp("slide-in");
+  //     }, 20000);
+  //     return [];
+  //   }
+  // }
 
-    fetchNewData && getFreshData();
-  }, [fetchNewData, displayUI]);
-
-  async function fetchMultipleQuestions(calls) {
-    async function fetchQuestions() {
-      try {
-        const response = await fetch(
-          "https://opentdb.com/api.php?amount=50&type=multiple"
-        );
-        // if (!response.ok) {
-        //   throw new Error(
-        //     "Error from server: Error status: " +
-        //       response.status +
-        //       "==" +
-        //       response
-        //   );
-        // }
-        let result = await response.json();
-        setUI(true);
-        return result;
-      } catch (e) {
-        console.log(e);
-        return null;
-      }
-    }
-    try {
-      const timeOffset = 1400;
-      let questions = [];
-      for (let i = 0; i < calls; i++) {
-        await new Promise((resolve) => setTimeout(resolve, timeOffset * i));
-        let tempArr = await fetchQuestions();
-        if (tempArr && tempArr.results)
-          questions = questions.concat(tempArr.results);
-      }
-      if (UIRef.current) {
-        setDataFetched(true);
-        setData(QBank1(questions));
-        console.log(questions);
-        clearInterval(checkdataFetched);
-        setTimeout(() => {
-          setCheckDataFetched(null);
-          setDisplay("none");
-          setGame(true);
-          track.playSound("wait");
-        }, 2000);
-      }
-    } catch (e) {
-      console.log(e);
-      setTimeout(() => {
-        setPopUp("slide-in");
-      }, 20000);
-      return [];
-    }
-  }
+  useEffect(()=>{
+    track.addSound(wait, 'wait');
+    track.addSound(wrong, 'wrong');
+    track.addSound(play, 'play');
+    track.addSound(correct, 'correct');
+    console.log('app landed')
+  }, [track])
 
   return (
     <>
-      {game && dataFetched ? (
-        <>
-          <Main
+      {(
+        <Routes>
+          <Route path='/quiz/:quizId' element={<>
+          <Quiz
             data={data}
             audio={track}
             setFetchNewData={setFetchNewData}
             newDataFetched={newDataFetched}
             setNewDataFetched={setNewDataFetched}
           />
-        </>
-      ) : (
-        <>
-          <div className="start">
-            <div className={`offline-popup ${popUp}`}>Offline</div>
-            <div className={`anime ${display}`}>
-              {[...Array(100)].map((_, j) => (
-                <Ribbon
-                  key={j}
-                  j={j}
-                  color={`hsl(${j * 75 + 45}, 100%, 50%)`}
-                />
-              ))}
-            </div>
-            {checkdataFetched && <span className="load"></span>}
-            <button onClick={() => start()}>Start</button>
-          </div>
-          <Footer />
-        </>
+        </>}/>
+        <Route path="/quiz" element={<Select setData={setData} audio={track} setTrack={setTrack}/>}/>
+        <Route exact path="/" element={<Home checkdataFetched={checkdataFetched} />}/> 
+        </Routes>
       )}
     </>
   );

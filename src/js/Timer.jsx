@@ -16,10 +16,11 @@ export default class Timer extends PureComponent{
         fontFamily: '"Tauri", sans-serif',
         letterSpacing: '4px',
     }
-    this.state = {timer:40, timerPathColor: 'rgb(30, 247, 15)'};
+    this.state = {timer:this.props.timeDuration, timerPathColor: 'rgb(30, 247, 15)', compTimer: null};
   }
 
-  componentDidMount(){ 
+  componentDidMount(){
+    this.setState({compTimer: Date.now()}); 
     this.props.setTimer(setInterval(this.add, 1000));
   }
   
@@ -29,11 +30,11 @@ export default class Timer extends PureComponent{
 
   add=()=>{
     // console.log('still running')
-    this.setState(prev=>({timer: prev.timer-1}));
+    this.setState(prev=>({timer: Number(((this.props.timeDuration - (Date.now()-prev.compTimer)/1000)).toFixed(0))}));
   }
 
   resetTimer=()=>{
-    this.setState({timer: 40, timerPathColor: 'rgb(30, 247, 15)'});
+    this.setState({timer: this.props.timeDuration, timerPathColor: 'rgb(30, 247, 15)', compTimer: Date.now()});
     this.props.resetAns();
     setTimeout(()=>{this.props.setTimer(setInterval(this.add, 1000))});
   }
@@ -41,8 +42,9 @@ export default class Timer extends PureComponent{
   componentDidUpdate(prevProps){
     this.state.timer<=0 && this.props.stopGame();
     prevProps.questionNo !== this.props.questionNo && this.resetTimer();
-    this.state.timer === 25 && this.setState({timerPathColor: 'orange'});
-    this.state.timer === 10 && this.setState({timerPathColor: 'red'})
+    this.state.timer === Number((0.6*this.props.timeDuration).toFixed(0)) && this.setState({timerPathColor: 'orange'});
+    this.state.timer === Number((0.25*this.props.timeDuration).toFixed(0)) && this.setState({timerPathColor: 'red'});
+
   }
   
   render() {
@@ -50,8 +52,8 @@ export default class Timer extends PureComponent{
     return (
       <div className='timer' style={this.styles}>
         <CircularProgressbar
-        value={(this.state.timer*100)/40}
-        text={`${this.state.timer}`}
+        value={(this.state.timer*100)/this.props.timeDuration}
+        text={this.state.timer<0?'0':`${this.state.timer}`}
         styles={buildStyles({
           textColor: '#fff',
           pathColor: this.state.timerPathColor,

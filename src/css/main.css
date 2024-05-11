@@ -25,6 +25,7 @@
   display: flex;
   justify-content: flex-end;
   position: relative;
+
 }
 
 .ans {
@@ -151,14 +152,17 @@
   gap: 4rem;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+}
+
+.fail>*:is(:not(a)){
+  font-size: 1.6rem;
 }
 
 .anime{
     position: absolute;
     left: 0;
     top: 0;
-    height: 440px;
+    height: 400px;
     overflow: hidden;
     width: 100vw;
     pointer-events: none;
@@ -168,7 +172,7 @@
 .timer {
   position: absolute;
   left: calc(50% - 50px);
-  bottom: 4%;
+  bottom: 15%;
   color: aliceblue;
   background-color: black;
   margin: 0;
@@ -366,7 +370,7 @@ ul .close{
 @media (max-width: 855px){
    .main .ans ul li::before, .main .ans ul li::after{
         z-index: -44;
-        width: 1000rem;
+        width: 1000px;
     }
     
 }
