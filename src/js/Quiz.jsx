@@ -8,6 +8,8 @@ export default function Quiz(props) {
     console.log(param)
 
   return (
-    <Main {...props} quizId = {param.quizId}/>
+    <div className='quiz-body'>
+        <Main {...props} quizId = {param.quizId}/>
+    </div>
   )
 }

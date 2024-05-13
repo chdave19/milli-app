@@ -110,8 +110,32 @@ const entertainmentFilmsH = [];
 const entertainmentAnimeH = [];
 const entertainmentComicsH = [];
 const randQuesH = [];
+
 export const QBank1 = (response) => {
-  response.forEach((value) => {
+  let responseData = response.map((value, index, arr) => {
+    for (let i = 0; i < arr.length; i++) {
+      try{
+        if (
+          index !== i &&
+          decodeTextData(value.question) === decodeTextData(arr[i].question)
+        ) {
+          // console.log(decodeTextData(value.question), decodeTextData(value.category));
+          // console.log(index, i);
+          arr[i] = null;
+        }
+      }catch(e){
+
+      }
+    }
+
+    return value;
+  });
+
+  // console.log(responseData.length)
+
+  responseData = responseData.filter((value) => value);
+  // console.log(responseData.length, 'filtered');
+  responseData.forEach((value) => {
     switch (decodeTextData(value.category)) {
       case "Entertainment: Comics":
         entertainmentComics.push(analyzeData(value));
@@ -447,218 +471,248 @@ export const QBank1 = (response) => {
       data: sportsE,
       name: "Sports_easy",
       tag: "Easy",
-      imgUrl: "https://images.pexels.com/photos/2115874/pexels-photo-2115874.jpeg?auto=compress&cs=tinysrgb&w=600",
+      imgUrl:
+        "https://images.pexels.com/photos/2115874/pexels-photo-2115874.jpeg?auto=compress&cs=tinysrgb&w=600",
       quote: "",
       title: "Sports",
-      duration: 40
+      duration: 40,
     },
     Sports_medium: {
       data: sportsM,
       name: "Sports_medium",
       tag: "Medium",
-      imgUrl: "https://img.freepik.com/free-vector/soccer-volleyball-baseball-rugby-equipment_1441-4026.jpg?t=st=1715422735~exp=1715426335~hmac=27a46b0291f814311254081c6a48faceb304179ffddcb6f99228c623a7215ef3&w=996",
+      imgUrl:
+        "https://img.freepik.com/free-vector/soccer-volleyball-baseball-rugby-equipment_1441-4026.jpg?t=st=1715422735~exp=1715426335~hmac=27a46b0291f814311254081c6a48faceb304179ffddcb6f99228c623a7215ef3&w=996",
       quote: "",
       title: "Sports",
-      duration: 30
+      duration: 30,
     },
     Sports_hard: {
       data: sportsH,
       name: "Sports_hard",
       tag: "Hard",
-      imgUrl: "https://img.freepik.com/free-vector/sport-equipment-concept_1284-13034.jpg?t=st=1715422702~exp=1715426302~hmac=c2deaaf8ed9b86d1be01ce19761386bc9c298e9fe7beae24b5e99a3578160ac3&w=740",
+      imgUrl:
+        "https://img.freepik.com/free-vector/sport-equipment-concept_1284-13034.jpg?t=st=1715422702~exp=1715426302~hmac=c2deaaf8ed9b86d1be01ce19761386bc9c298e9fe7beae24b5e99a3578160ac3&w=740",
       quote: "",
       title: "Sports",
-      duration: 25
+      duration: 25,
     },
     GeneralKnowledge_easy: {
       data: generalKnowledgeE,
       name: "GeneralKnowledge_easy",
       tag: "Easy",
-      imgUrl: "https://img.freepik.com/free-vector/hand-drawn-cartoon-brain-illustration_23-2150556254.jpg?w=740&t=st=1715422646~exp=1715423246~hmac=6eb16ab08a518e22d1dd6e5557a5b560a9094bada400cd7c4db9c047614b2709",
+      imgUrl:
+        "https://img.freepik.com/free-vector/hand-drawn-cartoon-brain-illustration_23-2150556254.jpg?w=740&t=st=1715422646~exp=1715423246~hmac=6eb16ab08a518e22d1dd6e5557a5b560a9094bada400cd7c4db9c047614b2709",
       quote: "",
       title: "General Knowledge",
-      duration: 40
+      duration: 40,
     },
     GeneralKnowledge_medium: {
       data: generalKnowledgeM,
       name: "GeneralKnowledge_medium",
       tag: "Medium",
-      imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVQxdqm9bq6QC4IKdwv-BUP9GZ5p0ipplXcQ&s",
+      imgUrl:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVQxdqm9bq6QC4IKdwv-BUP9GZ5p0ipplXcQ&s",
       quote: "",
       title: "General Knowledge",
-      duration: 35
+      duration: 35,
     },
     GeneralKnowledge_hard: {
       data: generalKnowledgeH,
       name: "GeneralKnowledge_hard",
       tag: "Hard",
-      imgUrl: "https://images.unsplash.com/photo-1513001900722-370f803f498d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Ym9va3N8ZW58MHwxfDB8fHww",
+      imgUrl:
+        "https://images.unsplash.com/photo-1513001900722-370f803f498d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Ym9va3N8ZW58MHwxfDB8fHww",
       quote: "",
       title: "General Knowledge",
-      duration: 30
+      duration: 30,
     },
     History_easy: {
       data: historyE,
       name: "History_easy",
       tag: "Easy",
-      imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhP49LYugh17dsMAPadGRZmR-p0dUTEQxz8A&s",
+      imgUrl:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhP49LYugh17dsMAPadGRZmR-p0dUTEQxz8A&s",
       quote: "",
       title: "History",
-      duration: 40
+      duration: 40,
     },
     History_medium: {
       data: historyM,
       name: "History_medium",
       tag: "Medium",
-      imgUrl: "https://images.pexels.com/photos/3185488/pexels-photo-3185488.jpeg?auto=compress&cs=tinysrgb&w=600",
+      imgUrl:
+        "https://images.pexels.com/photos/3185488/pexels-photo-3185488.jpeg?auto=compress&cs=tinysrgb&w=600",
       quote: "",
       title: "History",
-      duration: 30
+      duration: 30,
     },
     History_hard: {
       data: historyH,
       name: "History_hard",
       tag: "Hard",
-      imgUrl: "https://images.pexels.com/photos/3185480/pexels-photo-3185480.jpeg?auto=compress&cs=tinysrgb&w=600",
+      imgUrl:
+        "https://images.pexels.com/photos/3185480/pexels-photo-3185480.jpeg?auto=compress&cs=tinysrgb&w=600",
       quote: "",
       title: "History",
-      duration: 15
+      duration: 15,
     },
     Games_easy: {
       data: entertainmentGamesE,
       name: "Games_easy",
       tag: "Easy",
-      imgUrl: "https://images.pexels.com/photos/1657328/pexels-photo-1657328.jpeg?auto=compress&cs=tinysrgb&w=600",
+      imgUrl:
+        "https://images.pexels.com/photos/1657328/pexels-photo-1657328.jpeg?auto=compress&cs=tinysrgb&w=600",
       quote: "",
       title: "Games",
-      duration: 40
+      duration: 40,
     },
     Games_medium: {
       data: entertainmentGamesM,
       name: "Games_medium",
       tag: "Medium",
-      imgUrl: "https://images.pexels.com/photos/4523020/pexels-photo-4523020.jpeg?auto=compress&cs=tinysrgb&w=600",
+      imgUrl:
+        "https://images.pexels.com/photos/4523020/pexels-photo-4523020.jpeg?auto=compress&cs=tinysrgb&w=600",
       quote: "",
       title: "Games",
-      duration: 30
+      duration: 30,
     },
     Games_hard: {
       data: entertainmentGamesH,
       name: "Games_hard",
       tag: "Hard",
-      imgUrl: "https://images.pexels.com/photos/1337247/pexels-photo-1337247.jpeg?auto=compress&cs=tinysrgb&w=400",
+      imgUrl:
+        "https://images.pexels.com/photos/1337247/pexels-photo-1337247.jpeg?auto=compress&cs=tinysrgb&w=400",
       quote: "",
       title: "Games",
-      duration: 20
+      duration: 20,
     },
     Anime_easy: {
       data: entertainmentAnimeE,
       name: "Anime_easy",
       tag: "Easy",
-      imgUrl: "",
+      imgUrl:
+        "https://wallpapers.com/images/high/keigo-takami-1486-x-2160-5d1ou62k8lhuuj78.webp",
       quote: "",
       title: "Anime",
-      duration: 40
+      duration: 40,
     },
     Anime_medium: {
       data: entertainmentAnimeE,
       name: "Anime_medium",
       tag: "Medium",
-      imgUrl: "",
+      imgUrl:
+        "https://wallpapers.com/images/high/cool-anime-phone-ouma-shu-guilty-crown-f9folwc77klyi39p.webp",
       quote: "",
       title: "Anime",
-      duration: 30
+      duration: 30,
     },
     Anime_hard: {
       data: entertainmentAnimeE,
       name: "Anime_hard",
       tag: "Hard",
-      imgUrl: "",
+      imgUrl:
+        "https://as2.ftcdn.net/v2/jpg/05/39/50/89/1000_F_539508993_hMmYwC93zCk5ZV8wQNGeWfk78UDsJRVY.jpg",
       quote: "",
       title: "Anime",
-      duration: 20
+      duration: 20,
     },
     Animals_easy: {
       data: animalsE,
       name: "Animals_easy",
       tag: "Easy",
-      imgUrl: "",
+      imgUrl:
+        "https://images.pexels.com/photos/52509/penguins-emperor-antarctic-life-52509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       quote: "",
-      title: "Anime",
-      duration: 40
+      title: "Animals",
+      duration: 40,
     },
     Animals_medium: {
       data: animalsM,
       name: "Animals_medium",
       tag: "Medium",
-      imgUrl: "",
+      imgUrl:
+        "https://images.pexels.com/photos/208821/pexels-photo-208821.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       quote: "",
       title: "Animals",
-      duration: 30
+      duration: 30,
     },
     Animals_hard: {
       data: animalsH,
       name: "Animals_hard",
       tag: "Hard",
-      imgUrl: "",
+      imgUrl:
+        "https://images.pexels.com/photos/53581/bald-eagles-bald-eagle-bird-of-prey-adler-53581.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       quote: "",
       title: "Animals",
-      duration: 25
+      duration: 25,
     },
     Mythology_easy: {
       data: mythologyE,
       name: "Mythology_easy",
       tag: "Easy",
-      imgUrl: "",
+      imgUrl:
+        "https://t3.ftcdn.net/jpg/05/44/32/72/240_F_544327232_3fYpbEnnwqHqWZTAjbeBYjbVhSDsXT0a.jpg",
       quote: "",
       title: "Mythology",
-      duration: 40
+      duration: 40,
     },
     Mythology_medium: {
       data: mythologyM,
       name: "Mythology_medium",
       tag: "Medium",
-      imgUrl: "",
+      imgUrl:
+        "https://t3.ftcdn.net/jpg/06/91/75/64/360_F_691756444_z2gyjZ1ueufxbpY4xMagPX0NkMuzKyVy.jpg",
       quote: "",
       title: "Mythology",
-      duration: 30
+      duration: 30,
     },
     Mytholgy_hard: {
       data: mythologyH,
       name: "Mythology_hard",
       tag: "Hard",
-      imgUrl: "",
+      imgUrl:
+        "https://t4.ftcdn.net/jpg/05/50/83/85/240_F_550838504_ANHPHo3wTH16tMl9lZ5Zqh2n7cTtBcyJ.jpg",
       quote: "",
       title: "Mythology",
-      duration: 20
+      duration: 20,
     },
-    // _easy: {
-    //   data: ,
-    //   name: "",
-    //   tag: "",
-    //   imgUrl: "",
-    //   quote: "",
-    //   title: "",
-    //   duration: 40
-    // },
-    // _easy: {
-    //   data: ,
-    //   name: "",
-    //   tag: "",
-    //   imgUrl: "",
-    //   quote: "",
-    //   title: "",
-    //   duration: 40
-    // },
-    // _easy: {
-    //   data: ,
-    //   name: "",
-    //   tag: "",
-    //   imgUrl: "",
-    //   quote: "",
-    //   title: "",
-    //   duration: 40
-    // },
+    Default: {
+      data: defaultQuestions,
+      name: "Default",
+      tag: "Hard",
+      imgUrl: "",
+      quote: "",
+      title: "Default",
+      duration: 20,
+    },
+    science_mathematics_easy: {
+      data: scienceMathsE,
+      name: "science_mathematics_easy",
+      tag: "Easy",
+      imgUrl: "",
+      quote: "",
+      title: "Science & Maths",
+      duration: 40,
+    },
+    science_mathematics_medium: {
+      data: scienceMathsM,
+      name: "",
+      tag: "Medium",
+      imgUrl: "",
+      quote: "",
+      title: "Science & Maths",
+      duration: 30,
+    },
+    science_mathematics_hard: {
+      data: scienceMathsH,
+      name: "science_mathematics_hard",
+      tag: "Hard",
+      imgUrl: "",
+      quote: "",
+      title: "Science & Maths",
+      duration: 20,
+    },
     // _easy: {
     //   data: ,
     //   name: "",
@@ -741,8 +795,17 @@ export const QBank1 = (response) => {
     //   duration: 40
     // },
   };
-
-  return obj;
+  // console.log(obj);
+  if(response) return obj;
+  else return {
+    data: defaultQuestions,
+    name: "Default",
+    tag: "Hard",
+    imgUrl: "",
+    quote: "",
+    title: "Default",
+    duration: 20,
+  }
 };
 
 function analyzeData(value) {
@@ -862,31 +925,3 @@ export function randomiseQuestion(arr) {
   }
   return arr;
 }
-
-// const sports = [];
-// const generalKnowledge = [];
-// const animals = [];
-// const mythology = [];
-// const scienceMaths = [];
-// const entertainmentCartoon = [];
-// const scienceNature = [];
-// const entertainmentMusicals = [];
-// const entertainmentMusic = [];
-// const scienceComp = [];
-// const vehicles = [];
-// const geography = [];
-// const entertainmentTv = [];
-// const history = [];
-// const entertainmentGames = [];
-// const entertainmentFilms = [];
-// const entertainmentAnime = [];
-// const entertainmentComics = [];
-// const randQues = []
-
-// export const QBankMax = {
-//   sports: sports,
-//   GeneralKnowledge: generalKnowledge,
-//   Animals: animals,
-//   Games: entertainmentGames,
-//   History: history,
-// };

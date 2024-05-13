@@ -10,6 +10,7 @@ import Sad from "../img/sad.png";
 import Happy from "../img/happy.png";
 import LifeLine from "./LifeLine";
 import { Link } from "react-router-dom";
+import { defaultQuestions } from "./QuestionBank";
 
 export default class Main extends Component {
   constructor(props) {
@@ -17,7 +18,8 @@ export default class Main extends Component {
     this.quizId = this.props.quizId;
     
     this.state = {
-      question: this.props.data[this.quizId].data,
+      question: this.props.data[this.quizId].data || this.props.data.data,
+      // question: defaultQuestions,
       no: 1,
       stop: false,
       timer: true,
@@ -37,7 +39,11 @@ export default class Main extends Component {
       fiftyPressed: false,
       audiencePressed: false,
       disableFifty: false,
-      timeDuration: this.props.data[this.quizId].duration
+      timeDuration: this.props.data[this.quizId].duration || this.props.data.duration,
+      // timeDuration: 40,
+      displayProgress: '',
+      answerWrong: true,
+      actualNo: 1
     };
   }
 
@@ -46,24 +52,34 @@ export default class Main extends Component {
       this.state.question[this.state.no - 1].answer[e].correct &&
       this.state.clickable
     ) {
-      this.setState({
+      this.setState(prev=>({
         listClass: "correct",
         selectedAnswer: this.state.question[this.state.no - 1].answer[e].ans,
         clickable: false,
         disableFifty: true,
-      });
+        answerWrong: false,
+        
+      }));
       setTimeout(() => {
         this.props.audio.playSound("correct");
       }, 2000);
       this.stopInterval();
       this.setTimer(null);
+      setTimeout(()=>{
+        this.setState({displayProgress: 'active'});
+        setTimeout(()=>{
+          this.setState({displayProgress: ''});
+        }, 4000);
+      }, 5000);
       setTimeout(() => {
         this.props.audio.playSound("wait");
         this.setState((prev) => ({
+          answerWrong: false,
           no: prev.no + 1,
           clickable: true,
           fiftyPressed: false,
           disableFifty: false,
+          actualNo: prev.actualNo+1
         }));
       }, 6000);
     } else if (this.state.clickable) {
@@ -72,6 +88,7 @@ export default class Main extends Component {
         selectedAnswer: this.state.question[this.state.no - 1].answer[e].ans,
         listClassFailed: "correct-bg",
         clickable: false,
+        answerWrong: true,
       });
       this.stopInterval();
       setTimeout(() => {
@@ -95,7 +112,7 @@ export default class Main extends Component {
   };
 
   stopGame = () => {
-    if (this.state.life < 1) {
+    if (this.state.life < 2) {
       this.setState({ stop: true, listClass: "", selectedAnswer: null });
       this.props.audio.playSound("play");
     } else {
@@ -210,17 +227,17 @@ export default class Main extends Component {
       askAudience,
       life,
       timeDuration,
+      displayProgress,
+      answerWrong,
+      actualNo,
     } = this.state;
 
-    return !stop && this.state.no <= this.state.questionList ? (
+    return !stop && actualNo <= this.state.questionList ? (
       <div className="main">
         <Link to='./' className="logo"><img src={Banner} alt="" /><span>MilliTrivia</span></Link>
         <figure className="game-banner">
           <img src={Banner} alt="" />
         </figure>
-        <button className="menu" onClick={() => this.onMenu()}>
-          <AiOutlineBars />
-        </button>
         <button className="info">
           <AiTwotoneInfoCircle />
         </button>
@@ -240,13 +257,17 @@ export default class Main extends Component {
             stopInterval={this.stopInterval}
             interval={interval}
             timeDuration={timeDuration}
+            answerWrong={answerWrong}
           />
           <Money
             list={no}
             questionNo={no}
+            actualNo={actualNo}
             money={this.setEarned}
             menuActive={menuActive}
             resetMenu={this.resetMenu}
+            displayProgress={displayProgress}
+            answerWrong={answerWrong}
           />
         </div>
         <Ans
@@ -257,6 +278,7 @@ export default class Main extends Component {
           animateFail={listClassFailed}
           selectedAnswer={selectedAnswer}
           fiftyPressed={this.state.fiftyPressed}
+          actualNo = {actualNo}
         />
         <Footer />
       </div>

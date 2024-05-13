@@ -1,0 +1,19 @@
+
+.filter{
+    border: 2px solid orange;
+    background-color: transparent;
+    padding: 6px 10px;
+    color: orange;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+}
+
+.btn_section{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    
+}

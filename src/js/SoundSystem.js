@@ -6,13 +6,13 @@ export default class SoundSystem {
   }
 
   addSound(url, name) {
-    console.log('track-about-to-be-added')
+    // console.log('track-about-to-be-added')
     fetch(url)
       .then((response) => response.arrayBuffer())
       .then((arrayBuffer) => this.audioCtx.decodeAudioData(arrayBuffer))
       .then((audioBuffer) => {
         this.tracks[name] = audioBuffer;
-        console.log('track-added')
+        // console.log('track-added')
       }).catch(e=>{console.log(e)});
   }
 
@@ -28,7 +28,7 @@ export default class SoundSystem {
     audio.connect(this.audioCtx.destination);
     audio.start();
     this.currentTrack = {source: audio, name: name}
-    console.log('sound playing')
+    // console.log('sound playing')
   }
 
   stopSound(){

@@ -142,6 +142,7 @@ code {
   width: 100vw;
   padding-inline: 2rem;
   z-index: 99;
+  border-bottom: 4px solid orange;
 }
 
 .container{
@@ -151,7 +152,7 @@ code {
   justify-content: center;
   gap: 1rem;
   margin-inline: auto;
-  padding: 1px 2rem 2rem 2rem;
+  padding: 28px 2rem 2rem 2rem;
 }
 
 .container .item{
@@ -231,8 +232,8 @@ a.Easy{
 }
 
 .item-bottom a:is(:hover, :focus){
-  color: rgb(181, 70, 0);
-  border-color: rgb(181, 70, 0);
+  color: yellow;
+  /* border-color: rgb(181, 70, 0); */
 }
 
 .item-bottom .title{
@@ -274,14 +275,16 @@ a.Easy{
   align-items: center;
   text-decoration: none;
   z-index: 9999;
+  
 }
 
 .skel-bottom{
   display: flex;
-  align-self: flex-end;
+  /* align-self: flex-end; */
   justify-content: space-between;
   align-items: center;
   padding-right: 1rem;
+  padding-left: 10px;
   width: 100%;
 }
 
@@ -292,10 +295,20 @@ a.Easy{
 .skel{
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 70px;
+  border: 4px solid orange;
+  height: 100%;
+  border-radius: 12px;
+  padding: 12px 10px;
+  position: relative;
 }
 
-
+.load.abs{
+  position: absolute;
+  left: calc(50% - 20px);
+  top: calc(100px - 20px);
+  z-index: 9;
+}
 
 
 @media (max-width: 510px) {
@@ -305,4 +318,14 @@ a.Easy{
   justify-content: space-evenly;
   left: calc(50vw - 50%);
   }
+
+  .container .item{
+    border-width: 2px;
+    border-radius: 8px;
+  }
+
+  .skel{
+    border-width: 2px;
+    border-radius: 8px;
+}
 }

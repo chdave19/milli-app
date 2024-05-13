@@ -34,9 +34,10 @@ export default class Timer extends PureComponent{
   }
 
   resetTimer=()=>{
-    this.setState({timer: this.props.timeDuration, timerPathColor: 'rgb(30, 247, 15)', compTimer: Date.now()});
     this.props.resetAns();
-    setTimeout(()=>{this.props.setTimer(setInterval(this.add, 1000))});
+    setTimeout(()=>{
+      this.setState({timer: this.props.timeDuration, timerPathColor: 'rgb(30, 247, 15)', compTimer: Date.now()});
+      this.props.setTimer(setInterval(this.add, 1000))}, this.props.answerWrong?0:3000);
   }
 
   componentDidUpdate(prevProps){

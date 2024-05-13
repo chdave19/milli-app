@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { FaRegClock } from "react-icons/fa";
 import ImgPlaceholder from "../img/placeholder_img.png";
-
 
 export default function QuizItem({
   imageUrl,
@@ -12,11 +11,19 @@ export default function QuizItem({
   quote,
   duration,
 }) {
+  const imgRef = useRef();
+
   return (
-    <section className={`item ${mode}`}>
+    <section className={`item`}>
       <figure>
         {imageUrl ? (
-          <img src={imageUrl} alt={title + ", " + pageUrl} />
+            <>
+          <img
+            src={imageUrl}
+            ref={imgRef}
+            alt=''
+          />
+          </>
         ) : (
           <img
             src={ImgPlaceholder}

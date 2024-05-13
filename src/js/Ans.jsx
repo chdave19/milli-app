@@ -11,7 +11,9 @@ export default class Ans extends Component {
     return (
       <div className="ans">
         <section className="ques" id="ques">
-          {this.state.data[this.props.no - 1].question}
+          {`${this.props.actualNo}.  ${
+            this.state.data[this.props.no - 1].question
+          }`}
         </section>
         <ul>
           {this.state.data[this.props.no - 1].answer.map((data, i) => (
@@ -30,12 +32,29 @@ export default class Ans extends Component {
                   : ""
               }
             >
-              {!(this.props.fiftyPressed &&
-                !this.state.data[this.props.no - 1].answer[i].correct) ? (
-                  <>
-                    <span style={{ color: "orange", fontSize: "1.2rem" }}>{`${i + 1}:`}</span><span>{data.ans}</span>
-                  </>
-                ):(this.state.data[this.props.no - 1].answer[i].selectable)?<><span style={{ color: "orange", fontSize: "1.2rem", opacity:"hidden", transition:"visibility 400ms linear" }}>{`${i + 1}:`}</span><span>{data.ans}</span></>:null}
+              {!(
+                this.props.fiftyPressed &&
+                !this.state.data[this.props.no - 1].answer[i].correct
+              ) ? (
+                <>
+                  <span style={{ color: "orange", fontSize: "1.2rem" }}>{`${
+                    i + 1
+                  }:`}</span>
+                  <span>{data.ans}</span>
+                </>
+              ) : this.state.data[this.props.no - 1].answer[i].selectable ? (
+                <>
+                  <span
+                    style={{
+                      color: "orange",
+                      fontSize: "1.2rem",
+                      opacity: "hidden",
+                      transition: "visibility 400ms linear",
+                    }}
+                  >{`${i + 1}:`}</span>
+                  <span>{data.ans}</span>
+                </>
+              ) : null}
             </li>
           ))}
         </ul>

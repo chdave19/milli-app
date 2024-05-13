@@ -8,6 +8,7 @@ const theme = createTheme({
       styleOverrides: {
         wave: {
           // Override the keyframes to change animation speed
+          animationDuration: '0.2s',
           "@keyframes wave": {
             "0%": {
               transform: "translateX(-100%)",
@@ -26,12 +27,13 @@ function LoadingComponent() {
   return (
     <ThemeProvider theme={theme}>
       <div style={{ width: "300px" }} className="skel">
+        <div className="load abs"></div>
         <Skeleton
           variant="rectangular"
           width="100%"
           height={200}
           animation="wave"
-          style={{ backgroundColor: "gray", borderRadius: '12px' }}
+          style={{ backgroundColor: "#363535", borderRadius: '12px' }}
           sx={{ animationDuration: "0.2s" }}
         />
         <div className="skel-bottom">
@@ -41,7 +43,7 @@ function LoadingComponent() {
               width="30%"
               height={20}
               animation="wave"
-              style={{ backgroundColor: "gray" }}
+              style={{ backgroundColor: "#363535" }}
               sx={{ animationDuration: "0.2s" }}
             />
             <Skeleton
@@ -49,7 +51,7 @@ function LoadingComponent() {
               width="40%"
               height={20}
               animation="wave"
-              style={{ backgroundColor: "gray" }}
+              style={{ backgroundColor: "#363535" }}
               sx={{ animationDuration: "0.2s" }}
             />
             <Skeleton
@@ -57,16 +59,16 @@ function LoadingComponent() {
               width="50%"
               height={20}
               animation="wave"
-              style={{ backgroundColor: "gray" }}
+              style={{ backgroundColor: "#363535" }}
               sx={{ animationDuration: "0.2s" }}
             />
           </div>
           <Skeleton
               variant="text"
-              width="20%"
+              width="25%"
               height={50}
               animation="wave"
-              style={{ backgroundColor: "gray" }}
+              style={{ backgroundColor: "#363535" }}
               sx={{ animationDuration: "0.2s" }}
             />
         </div>

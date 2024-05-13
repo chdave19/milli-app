@@ -6,6 +6,8 @@ import QuizItem from "./QuizItem";
 import { QBank1, randomiseQuestion } from "./QuestionBank";
 import { FaSearch } from "react-icons/fa";
 import LoadingComponent from "./LoadingPlaceHolder";
+import { FaFilter } from "react-icons/fa";
+import styles from '../css/milli.module.css';
 
 export default class Select extends Component {
   constructor(props) {
@@ -19,7 +21,7 @@ export default class Select extends Component {
   }
 
   componentDidMount() {
-    this.fetchMultipleQuestions(3);
+    this.fetchMultipleQuestions(8);
     console.log("mounted");
   }
 
@@ -47,12 +49,13 @@ export default class Select extends Component {
           questions = questions.concat(tempArr.results);
         if (i === calls - 1) {
           if (this.state.responseOk) {
-            this.props.setData(QBank1(questions));
+            const d = QBank1(questions);
+            this.props.setData(d);
             this.setState({
-              quizzes: randomiseQuestion(Object.values(QBank1(questions))),
+              quizzes: randomiseQuestion(Object.values(d)),
             });
           }
-          console.log(QBank1(questions));
+          
         }
       }
       //   if ('') {
@@ -82,9 +85,12 @@ export default class Select extends Component {
               <img src={logo} alt="" />
               <span>MilliTrivia</span>
             </Link>
+            <div className={styles.btn_section}>
+            <button className={styles.filter}><FaFilter/></button>    
             <div className="search-quiz">
               <input type="text" />
               <FaSearch />
+            </div>
             </div>
           </header>
           <div className="container">

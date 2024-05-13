@@ -1,12 +1,15 @@
 
 body{
-  /* background: rgb(8,8,43);
-  background: radial-gradient(circle, rgba(8,8,43,1) 39%, rgba(9,9,121,1) 68%, rgba(18,53,235,1) 94%);  */
   background-size: 100vw;
   user-select: none;
   -webkit-user-select: none;
   overflow-x: hidden;
   background-color: black;
+}
+
+.quiz-body{
+  background: rgb(8,8,43);
+  background: radial-gradient(circle, rgba(8,8,43,1) 39%, rgba(9,9,121,1) 68%, rgba(18,53,235,1) 94%); 
 }
 
 
@@ -35,6 +38,14 @@ body{
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   /* animation-direction: reverse; */
+}
+
+@media (max-width: 590px){
+ .start-banner{
+  width: 100vw;
+  top: calc(50vh - 50vw);
+  left: 0;
+ }
 }
 
 @keyframes rotate {
@@ -71,8 +82,6 @@ body{
 }
 
 .load{
-  color: #fff;
-  font-family: sans-serif;
   display: block;
   position: absolute;
   top: 40px;
