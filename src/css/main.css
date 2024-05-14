@@ -8,15 +8,21 @@
 
 .game-banner{
     position: absolute;
-    top: 10px;
-    left: calc(50% - 150px);
+    top: 20px;
+    width: 70%;
     margin-bottom: 2rem;
+    left: calc(50% - 35%);
+    border: 2px solid orange;
+    border-radius: 12px;
 }
 
 .game-banner img{
-    width: 300px;
-    aspect-ratio: 1/1;
+    width: 100%;
     object-fit: cover;
+    height: 400px;
+    object-position: center;
+    border-radius: 12px;
+    display: block;
 }
 
 

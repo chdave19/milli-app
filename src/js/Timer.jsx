@@ -30,7 +30,7 @@ export default class Timer extends PureComponent{
 
   add=()=>{
     // console.log('still running')
-    this.setState(prev=>({timer: Number(((this.props.timeDuration - (Date.now()-prev.compTimer)/1000)).toFixed(0))}));
+    // this.setState(prev=>({timer: Number(((this.props.timeDuration - (Date.now()-prev.compTimer)/1000)).toFixed(0))}));
   }
 
   resetTimer=()=>{

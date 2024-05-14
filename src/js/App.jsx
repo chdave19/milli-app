@@ -119,7 +119,7 @@ function App(props) {
   }, [track])
 
   return (
-    <>
+    <div style={{maxWidth: '1600px', height: 'fit-content'}} className="main-box">
       {(
         <Routes>
           <Route path='/quiz/:quizId' element={<>
@@ -135,7 +135,7 @@ function App(props) {
         <Route exact path="/" element={<Home checkdataFetched={checkdataFetched} />}/> 
         </Routes>
       )}
-    </>
+    </div>
   );
 }
 

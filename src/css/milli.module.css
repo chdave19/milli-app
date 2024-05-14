@@ -17,3 +17,9 @@
     gap: 20px;
     
 }
+
+@media (max-width: 620px){
+    .btn_section{
+        display: none;
+    }
+}

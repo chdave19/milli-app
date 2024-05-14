@@ -16,9 +16,9 @@ export default class Main extends Component {
   constructor(props) {
     super(props);
     this.quizId = this.props.quizId;
-    
+    this.quiz = this.props.data[this.quizId]
     this.state = {
-      question: this.props.data[this.quizId].data || this.props.data.data,
+      question: this.quiz.data || this.props.data.data,
       // question: defaultQuestions,
       no: 1,
       stop: false,
@@ -39,11 +39,12 @@ export default class Main extends Component {
       fiftyPressed: false,
       audiencePressed: false,
       disableFifty: false,
-      timeDuration: this.props.data[this.quizId].duration || this.props.data.duration,
+      timeDuration: this.quiz.duration || this.props.data.duration,
       // timeDuration: 40,
       displayProgress: '',
       answerWrong: true,
-      actualNo: 1
+      actualNo: 1,
+      imageUrl: this.quiz.imgUrl
     };
   }
 
@@ -230,13 +231,14 @@ export default class Main extends Component {
       displayProgress,
       answerWrong,
       actualNo,
+      imageUrl,
     } = this.state;
 
     return !stop && actualNo <= this.state.questionList ? (
       <div className="main">
         <Link to='./' className="logo"><img src={Banner} alt="" /><span>MilliTrivia</span></Link>
         <figure className="game-banner">
-          <img src={Banner} alt="" />
+          <img src={imageUrl} alt="" />
         </figure>
         <button className="info">
           <AiTwotoneInfoCircle />
