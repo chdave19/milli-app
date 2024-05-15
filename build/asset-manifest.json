@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.9de6fa4c.css",
-    "main.js": "/static/js/main.b33124a3.js",
+    "main.css": "/static/css/main.49a2410d.css",
+    "main.js": "/static/js/main.d79c844a.js",
     "static/media/wait.mp3": "/static/media/wait.30e329da76ae665702f7.mp3",
     "static/media/search.png": "/static/media/search.256c23f3436812aaead8.png",
     "static/media/milli-game-bg.png": "/static/media/milli-game-bg.52c329c3395d50aa6084.png",
@@ -9,13 +9,16 @@
     "static/media/sad.png": "/static/media/sad.36be38b2ec1fc59160d2.png",
     "static/media/play.mp3": "/static/media/play.8e5f6d1d81d4e1414b95.mp3",
     "static/media/correct.mp3": "/static/media/correct.160572d72c858155072e.mp3",
+    "static/media/platform.jpeg": "/static/media/platform.248c4791d60c7a5fd913.jpeg",
     "static/media/wrong.mp3": "/static/media/wrong.e946821894ae9b0a0d6f.mp3",
+    "static/media/audience-milli.png": "/static/media/audience-milli.51d4d8d774a07d7a4581.png",
+    "static/media/money-tree.jpeg": "/static/media/money-tree.b104c4de943c125206c4.jpeg",
     "index.html": "/index.html",
-    "main.9de6fa4c.css.map": "/static/css/main.9de6fa4c.css.map",
-    "main.b33124a3.js.map": "/static/js/main.b33124a3.js.map"
+    "main.49a2410d.css.map": "/static/css/main.49a2410d.css.map",
+    "main.d79c844a.js.map": "/static/js/main.d79c844a.js.map"
   },
   "entrypoints": [
-    "static/css/main.9de6fa4c.css",
-    "static/js/main.b33124a3.js"
+    "static/css/main.49a2410d.css",
+    "static/js/main.d79c844a.js"
   ]
 }

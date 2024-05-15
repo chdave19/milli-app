@@ -8,30 +8,43 @@
 
 .game-banner{
     position: absolute;
-    top: 20px;
     width: 70%;
     margin-bottom: 2rem;
     left: calc(50% - 35%);
     border: 2px solid orange;
     border-radius: 12px;
+    height: 87%;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom: none;
+    overflow: hidden;
+}
+
+.game-banner::before{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+  z-index: 2;
 }
 
 .game-banner img{
     width: 100%;
     object-fit: cover;
-    height: 400px;
     object-position: center;
-    border-radius: 12px;
+    /* border-radius: 12px; */
     display: block;
+    height: 100%;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 
 .mon {
   min-height: 470px;
   display: flex;
-  justify-content: flex-end;
   position: relative;
-
+  
 }
 
 .ans {
@@ -182,6 +195,7 @@
   color: aliceblue;
   background-color: black;
   margin: 0;
+  z-index: 9;
 }
 
 .none{
@@ -372,9 +386,14 @@
     pointer-events: none;
 }
 
-.main .info{
+.main .close{
     display: block;
     right: 10px;
+}
+
+.info{
+  display: block;
+  left: 10px;
 }
 
 ul.menu-active{
@@ -463,12 +482,22 @@ ul .close{
         width: 85%;
       }
 
+      .game-banner{
+        width: 95%;
+        margin-bottom: 2rem;
+        left: 2.5%;
+        right: 2.5%;
+        border: 2px solid orange;
+        border-radius: 12px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
 }
 
 @media (max-width: 320px){
     .game-banner{
-        width: 100vw;
-        padding: 12px;
+        /* width: 100%; */
         top: 46px;
     }
     .game-banner img{
