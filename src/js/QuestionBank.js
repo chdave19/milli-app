@@ -119,8 +119,6 @@ export const QBank1 = (response) => {
           index !== i &&
           decodeTextData(value.question) === decodeTextData(arr[i].question)
         ) {
-          // console.log(decodeTextData(value.question), decodeTextData(value.category));
-          // console.log(index, i);
           arr[i] = null;
         }
       }catch(e){

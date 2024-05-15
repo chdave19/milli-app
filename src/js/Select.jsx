@@ -102,7 +102,7 @@ export default class Select extends Component {
             {dataFetched || !this.props.fetchNewData ? (
               quizzes.length > 0 ? (
                 this.state.quizzes.map((item, key) =>
-                  item.data.length >= 0 ? (
+                  item.data.length >= 6 ? (
                     <QuizItem
                       key={key}
                       imageUrl={item.imgUrl}

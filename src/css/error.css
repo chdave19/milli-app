@@ -1,0 +1,28 @@
+
+.error-class{
+  position: absolute;
+  background-color: rgb(14, 4, 77);
+  border: 2px solid orange;
+  border-radius: 12px;
+  color: orange;
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  padding: 1.4rem;
+  inset: 5%;
+  display: flex;
+  /* justify-content: center; */
+  
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.error-top{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.error-class a{
+    color: inherit;
+}
