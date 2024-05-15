@@ -67,7 +67,7 @@ function App(props) {
     track.addSound(correct, "correct");
     console.log("app landed");
 
-    (fetchData && fetchNewData) && fetchMultipleQuestions(4);
+    (fetchData && fetchNewData) && fetchMultipleQuestions(10);
   },[fetchData, track, fetchNewData]);
 
   return (

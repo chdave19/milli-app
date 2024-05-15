@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.49a2410d.css",
-    "main.js": "/static/js/main.d79c844a.js",
+    "main.js": "/static/js/main.61d4de4f.js",
     "static/media/wait.mp3": "/static/media/wait.30e329da76ae665702f7.mp3",
     "static/media/search.png": "/static/media/search.256c23f3436812aaead8.png",
     "static/media/milli-game-bg.png": "/static/media/milli-game-bg.52c329c3395d50aa6084.png",
@@ -15,10 +15,10 @@
     "static/media/money-tree.jpeg": "/static/media/money-tree.b104c4de943c125206c4.jpeg",
     "index.html": "/index.html",
     "main.49a2410d.css.map": "/static/css/main.49a2410d.css.map",
-    "main.d79c844a.js.map": "/static/js/main.d79c844a.js.map"
+    "main.61d4de4f.js.map": "/static/js/main.61d4de4f.js.map"
   },
   "entrypoints": [
     "static/css/main.49a2410d.css",
-    "static/js/main.d79c844a.js"
+    "static/js/main.61d4de4f.js"
   ]
 }
