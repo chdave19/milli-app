@@ -1,5 +1,4 @@
-
-body{
+body {
   background-size: 100vw;
   user-select: none;
   -webkit-user-select: none;
@@ -7,13 +6,12 @@ body{
   background-color: black;
 }
 
-.quiz-body{
+.quiz-body {
   /* background: rgb(8,8,43);
   background: radial-gradient(circle, rgba(8,8,43,1) 39%, rgba(9,9,121,1) 68%, rgba(18,53,235,1) 94%);  */
 }
 
-
-.start{
+.start {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,13 +19,15 @@ body{
   width: 100vw;
   gap: 2rem;
   flex-direction: column;
-  /* background-image: url("../img/milli-game-bg.png");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+    url("../img/home-bg.jpeg");
   background-position: center;
-  background-repeat: no-repeat; */
+  background-repeat: no-repeat;
   position: relative;
+  background-size: 100%;
 }
 
-.start-banner{
+.start-banner {
   position: absolute;
   top: calc(50vh - 350px);
   left: calc(50vw - 300px);
@@ -40,29 +40,28 @@ body{
   /* animation-direction: reverse; */
 }
 
-@media (max-width: 590px){
- .start-banner{
-  width: 100vw;
-  top: calc(50vh - 50vw);
-  left: 0;
- }
+@media (max-width: 590px) {
+  .start-banner {
+    width: 100vw;
+    top: calc(50vh - 50vw);
+    left: 0;
+  }
 }
 
 @keyframes rotate {
-  0%{
+  0% {
     transform: rotate(0deg);
   }
-  100%{
-    transform: rotate(360deg)
+  100% {
+    transform: rotate(360deg);
   }
 }
 
-.start-banner img{
+.start-banner img {
   width: 100%;
 }
 
-
-.start .start-btn{
+.start .start-btn {
   border: 4px solid orange;
   background-color: #000;
   font-size: 3rem;
@@ -76,12 +75,12 @@ body{
   text-decoration: none;
 }
 
-.start .start-btn:is(:hover, :focus){
+.start .start-btn:is(:hover, :focus) {
   color: orange;
   transition: all 0.4s;
 }
 
-.load{
+.load {
   display: block;
   position: absolute;
   top: 40px;
@@ -94,26 +93,25 @@ body{
   animation-name: turn;
   animation-duration: 2s;
   animation-iteration-count: infinite;
-  animation-direction:reverse;
+  animation-direction: reverse;
   animation-timing-function: linear;
 }
 
 @keyframes turn {
-  0%{
+  0% {
     transform: rotate(0deg);
   }
-  100%{
+  100% {
     transform: rotate(-720deg);
   }
 }
 
-.info>*{
+.info > * {
   pointer-events: none;
   z-index: 999;
 }
 
-
-.footer{
+.footer {
   min-height: 80px;
   background-color: rgb(0, 0, 0);
   padding-top: 2rem;
@@ -125,7 +123,7 @@ body{
   gap: 2rem;
 }
 
-.footer span{
+.footer span {
   color: orange;
   font-size: 1.2rem;
   font-family: "Poetsen One", sans-serif;
@@ -133,23 +131,23 @@ body{
   font-style: normal;
 }
 
-.icon-lists{
+.icon-lists {
   display: flex;
   gap: 2rem;
 }
 
-.icon-lists a{
+.icon-lists a {
   text-decoration: none;
   font-size: 2rem;
   color: orange;
 }
 
-.icon-lists a:is(:hover, :focus){
+.icon-lists a:is(:hover, :focus) {
   color: orangered;
   transition: all 0.4s;
 }
 
-.fail-btn{
+.fail-btn {
   background-color: #000;
   color: orange;
   border-radius: 12px;
@@ -162,15 +160,15 @@ body{
   cursor: pointer;
 }
 
-.sad img{
+.sad img {
   width: 180px;
 }
 
-.fail-text{
+.fail-text {
   font-family: "Nosifer", sans-serif;
 }
 
-.earn{
+.earn {
   font-family: "Poetsen One", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -178,14 +176,14 @@ body{
   text-align: center;
 }
 
-@media (max-width: 700px){
-  .fail{
+@media (max-width: 700px) {
+  .fail {
     font-size: 1rem;
   }
 }
 
-@media (min-width: 1600px){
-  .main-box{
+@media (min-width: 1600px) {
+  .main-box {
     border: 4px solid orange;
     border-radius: 12px;
   }

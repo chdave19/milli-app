@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/static/css/main.ee5d4258.css",
-    "main.js": "/static/js/main.0c7fb696.js",
+    "main.css": "/static/css/main.3ea4bb41.css",
+    "main.js": "/static/js/main.8b95cb47.js",
     "static/media/wait.mp3": "/static/media/wait.30e329da76ae665702f7.mp3",
+    "static/media/home-bg.jpeg": "/static/media/home-bg.73259127bd25a8b8f85d.jpeg",
     "static/media/search.png": "/static/media/search.256c23f3436812aaead8.png",
     "static/media/milli-game-bg.png": "/static/media/milli-game-bg.52c329c3395d50aa6084.png",
     "static/media/happy.png": "/static/media/happy.9be88cd437865a702b57.png",
@@ -14,11 +15,11 @@
     "static/media/audience-milli.png": "/static/media/audience-milli.51d4d8d774a07d7a4581.png",
     "static/media/money-tree.jpeg": "/static/media/money-tree.b104c4de943c125206c4.jpeg",
     "index.html": "/index.html",
-    "main.ee5d4258.css.map": "/static/css/main.ee5d4258.css.map",
-    "main.0c7fb696.js.map": "/static/js/main.0c7fb696.js.map"
+    "main.3ea4bb41.css.map": "/static/css/main.3ea4bb41.css.map",
+    "main.8b95cb47.js.map": "/static/js/main.8b95cb47.js.map"
   },
   "entrypoints": [
-    "static/css/main.ee5d4258.css",
-    "static/js/main.0c7fb696.js"
+    "static/css/main.3ea4bb41.css",
+    "static/js/main.8b95cb47.js"
   ]
 }

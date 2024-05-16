@@ -54,7 +54,7 @@ export default class Main extends Component {
   click = (e) => {
     if (
       this.state.question[this.state.no - 1].answer[e].correct &&
-      this.state.clickable
+      this.state.clickable && this.state.startGame
     ) {
       this.setState((prev) => ({
         listClass: "correct",
@@ -85,7 +85,7 @@ export default class Main extends Component {
           actualNo: prev.actualNo + 1,
         }));
       }, 6000);
-    } else if (this.state.clickable) {
+    } else if (this.state.clickable && this.state.startGame) {
       this.setState({
         listClass: "failed",
         selectedAnswer: this.state.question[this.state.no - 1].answer[e].ans,

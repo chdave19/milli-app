@@ -444,14 +444,14 @@ button {
   font-weight: 100;
   font-style: normal;
   padding: 1.4rem;
-  top: 16%;
+  top: 18%;
   right: 5%;
   left: 5%;
   /* display: none; */
   height: fit-content;
 }
 
-.game-start-info h1{
+.game-start-info h1 {
   justify-content: center;
   margin-bottom: 2rem;
   display: flex;
@@ -461,35 +461,40 @@ button {
   margin-top: 2rem;
 }
 
-.game-start-info ul{
+.game-start-info ul {
   margin-top: 1rem;
   padding-right: 1rem;
   margin-left: 1rem;
 }
 
-.game-start-info ul li{
+.game-start-info ul li {
   margin-top: 10px;
   display: flex;
   gap: 1rem;
+}
+
+.milli{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  color: orange;
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  align-items: center;
+  font-size: 1.5rem;
 }
 
 @media (max-width: 650px) {
   .audience {
     inset: -100px 2% -300px 2%;
   }
-
 }
 
 @media (max-width: 600px) {
-  .game-start-info ul li{
+  .game-start-info ul li {
     flex-wrap: wrap;
   }
-
- 
-
- 
-
- 
 }
 
 @media (max-width: 510px) {

@@ -52,7 +52,7 @@ export default class LifeLine extends Component {
                       press: false,
                     });
                   setTimeout(() => {
-                    this.setState({ displayTrue: "display-t" }, () => {
+                    this.setState({ displayTrue: "display-f" }, () => {
                       this.props.resetAudiencePressed(false);
                     });
                   }, 4000);
