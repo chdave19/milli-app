@@ -20,12 +20,38 @@ export default class Select extends Component {
       searchQuery: "",
       fullData: Object.values(this.props.data),
       dataFetched: false,
+      loadingText: 'Please wait...  ',
+      loadingTime: 0,
+      loadingInterval: null,
     };
   }
 
   componentDidMount() {
     this.props.setFetchData(true);
-    console.log("mounted");
+    this.setState({
+      loadingInterval: setInterval(()=>{
+       this.setState(prev=>({
+        loadingTime: prev.loadingTime + 1,
+       }),()=>{
+        switch(this.state.loadingTime){
+          case 10: this.setState({loadingText: 'Fetching resources...'}); break;
+          case 34: this.setState({loadingText: 'We are getting there...'}); break;
+          case 44: this.setState({loadingText: 'I know you have patience...'}); break;
+          case 55: this.setState({loadingText: 'Wow, you are actually waiting...'}); break;
+          case 63: this.setState({loadingText: "You won't regret waiting fr..."}); break;
+          case 76: this.setState({loadingText: 'We are almost there...'}); break;
+          case 84: this.setState({loadingText: 'Should be done in 10s or so...'}); break;
+          case 91: this.setState({loadingText: 'Thanks for waiting, resources fully fetched...'}); break;
+          default: 
+        }
+       })
+      }, 1000)
+    })
+
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.state.loadingInterval);
   }
 
   componentDidUpdate() {
@@ -134,9 +160,12 @@ export default class Select extends Component {
                 </div>
               )
             ) : (
-              Array.from({ length: 16 }, () => "").map((_, i) => (
+              <>
+              {Array.from({ length: 16 }, () => "").map((_, i) => (
                 <LoadingComponent key={i} />
-              ))
+              ))}
+              <div className="online-indicator"><span>{`${this.state.loadingText}${this.state.loadingTime}s`}</span><div className="load abs"></div></div>
+              </>
             )}
           </div>
         </div>

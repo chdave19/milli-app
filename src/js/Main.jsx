@@ -210,6 +210,10 @@ export default class Main extends Component {
       this.setState((prev) => ({ askAudience: prev.askAudience - 1 }));
   };
 
+  setClickable=(value)=>{
+    this.setState({clickable: value});
+  }
+
   render() {
     const styles = { color: "red" };
     const {
@@ -232,6 +236,7 @@ export default class Main extends Component {
       imageUrl,
       audiencePressed,
       startGame,
+      clickable,
     } = this.state;
 
     return !stop && actualNo < this.state.questionList + 1 ? (
@@ -306,6 +311,8 @@ export default class Main extends Component {
             data={this.state.question}
             questionNo={no}
             resetAudiencePressed={this.resetAudiencePressed}
+            clickable={clickable}
+            setClickable={this.setClickable}
           />
           <Timer
             stopGame={this.stopGame}

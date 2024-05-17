@@ -35,6 +35,10 @@ export default class Home extends Component {
     });
   }
 
+  componentWillUnmount(){
+    clearInterval(this.state.imageLoop);
+  }
+
   render() {
     return (
       <>

@@ -27,7 +27,6 @@ function LoadingComponent() {
   return (
     <ThemeProvider theme={theme}>
       <div style={{ width: "300px" }} className="skel">
-        <div className="load abs"></div>
         <Skeleton
           variant="rectangular"
           width="100%"

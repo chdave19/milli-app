@@ -43,6 +43,7 @@ export default class LifeLine extends Component {
             if (this.state.press) {
               setAskAudience();
               this.props.resetAudiencePressed(true);
+              this.props.setClickable(false);
               this.props.data[this.props.questionNo - 1].answer.forEach(
                 (value) => {
                   value.correct &&
@@ -54,6 +55,7 @@ export default class LifeLine extends Component {
                   setTimeout(() => {
                     this.setState({ displayTrue: "display-f" }, () => {
                       this.props.resetAudiencePressed(false);
+                      this.props.setClickable(true);
                     });
                   }, 4000);
                 }

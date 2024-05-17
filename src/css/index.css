@@ -118,8 +118,12 @@ code {
   font-size: 12px;
 }
 
-.lifeline button:hover {
+.lifeline button:not(:first-of-type):hover {
   background-color: rgb(221, 75, 2);
+}
+
+.lifeline button:is(:first-of-type){
+  cursor: auto;
 }
 
 .logo {
@@ -151,7 +155,7 @@ code {
   position: fixed;
   left: 0;
   top: 0;
-  height: 80px;
+  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -159,13 +163,13 @@ code {
   width: 100%;
   padding-inline: 2rem;
   z-index: 99;
-  border-bottom: 4px solid orange;
+  border-bottom: 2px solid orange;
 }
 
 .container {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 80px;
+  margin-top: 60px;
   justify-content: center;
   gap: 1rem;
   margin-inline: auto;
@@ -322,13 +326,6 @@ a.Easy {
   border-radius: 12px;
   padding: 12px 10px;
   position: relative;
-}
-
-.load.abs {
-  position: absolute;
-  left: calc(50% - 20px);
-  top: calc(100px - 20px);
-  z-index: 9;
 }
 
 .not-found {
@@ -499,6 +496,34 @@ button {
   animation-iteration-count: infinite;
 }
 
+.main-box{
+  background-color: rgb(26, 20, 20);
+}
+
+.online-indicator{
+  height: 88px;
+  background-color: black;
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  position: fixed;
+  width: 60%;
+  left: calc(50% - 30%);
+  top: calc(40vh);
+  display: flex;
+  border: 2px solid orange;
+  border-radius: 12px;
+  color: orange;
+  align-items: center;
+  padding-inline: 1rem;
+  justify-content: space-between;
+}
+
+.select-quiz .online-indicator .load.abs {
+  position: static;
+  z-index: 9;
+}
+
 @keyframes fade-in-out {
   0%{
     opacity: 0;
@@ -514,6 +539,12 @@ button {
 
   100%{
     opacity: 0;
+  }
+}
+
+@media (max-width: 678px) {
+  .container .item{
+    width: 90vw;
   }
 }
 
@@ -563,6 +594,18 @@ button {
     left: 2.5%;
     right: 2.5%;
   }
+}
+
+@media (max-width: 450px) {
+    .load.abs{
+      width: 30px;
+    }
+
+    .online-indicator{
+      width: 95vw;
+      left: 2.5vw;
+      right: 2.5vw;
+    }
 }
 
 @media (max-width: 400px) {
