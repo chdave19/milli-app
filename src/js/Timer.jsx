@@ -32,23 +32,23 @@ export default class Timer extends PureComponent {
 
   add = () => {
     // console.log('still running')
-    // if (!this.props.audiencePressed && this.props.startGame) {
-    //   this.setState((prev) => ({
-    //     timer: Number(
-    //       (
-    //         this.props.timeDuration -
-    //         (Date.now() - prev.compTimer) / 1000
-    //       ).toFixed(0)
-    //     ),
-    //     pauseTimer: true,
-    //   }));
-    // } else {
-    //   if (this.state.pauseTimer) {
-    //     this.setState({ pauseTimer: false }, () => {
-    //       this.setState((prev) => ({ compTimer: prev.compTimer + 4300 }));
-    //     });
-    //   }
-    // }
+    if (!this.props.audiencePressed && this.props.startGame) {
+      this.setState((prev) => ({
+        timer: Number(
+          (
+            this.props.timeDuration -
+            (Date.now() - prev.compTimer) / 1000
+          ).toFixed(0)
+        ),
+        pauseTimer: true,
+      }));
+    } else {
+      if (this.state.pauseTimer) {
+        this.setState({ pauseTimer: false }, () => {
+          this.setState((prev) => ({ compTimer: prev.compTimer + 4300 }));
+        });
+      }
+    }
   };
 
   resetTimer = () => {
