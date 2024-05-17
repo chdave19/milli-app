@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.3ea4bb41.css",
-    "main.js": "/static/js/main.8b95cb47.js",
+    "main.css": "/static/css/main.8a25f532.css",
+    "main.js": "/static/js/main.205aaf13.js",
     "static/media/wait.mp3": "/static/media/wait.30e329da76ae665702f7.mp3",
     "static/media/home-bg.jpeg": "/static/media/home-bg.73259127bd25a8b8f85d.jpeg",
     "static/media/search.png": "/static/media/search.256c23f3436812aaead8.png",
@@ -9,17 +9,21 @@
     "static/media/happy.png": "/static/media/happy.9be88cd437865a702b57.png",
     "static/media/sad.png": "/static/media/sad.36be38b2ec1fc59160d2.png",
     "static/media/play.mp3": "/static/media/play.8e5f6d1d81d4e1414b95.mp3",
+    "static/media/wave.png": "/static/media/wave.963a9afef96888cddda7.png",
     "static/media/correct.mp3": "/static/media/correct.160572d72c858155072e.mp3",
     "static/media/platform.jpeg": "/static/media/platform.248c4791d60c7a5fd913.jpeg",
     "static/media/wrong.mp3": "/static/media/wrong.e946821894ae9b0a0d6f.mp3",
+    "static/media/triple-milli-bg-2.png": "/static/media/triple-milli-bg-2.bc5e03ec7b99a710bff0.png",
+    "static/media/triple-milli-bg-1.png": "/static/media/triple-milli-bg-1.f42d8cc2c0ce8b33812e.png",
+    "static/media/triple-milli-bg-3.png": "/static/media/triple-milli-bg-3.9707ad22945d9cde0d31.png",
     "static/media/audience-milli.png": "/static/media/audience-milli.51d4d8d774a07d7a4581.png",
     "static/media/money-tree.jpeg": "/static/media/money-tree.b104c4de943c125206c4.jpeg",
     "index.html": "/index.html",
-    "main.3ea4bb41.css.map": "/static/css/main.3ea4bb41.css.map",
-    "main.8b95cb47.js.map": "/static/js/main.8b95cb47.js.map"
+    "main.8a25f532.css.map": "/static/css/main.8a25f532.css.map",
+    "main.205aaf13.js.map": "/static/js/main.205aaf13.js.map"
   },
   "entrypoints": [
-    "static/css/main.3ea4bb41.css",
-    "static/js/main.8b95cb47.js"
+    "static/css/main.8a25f532.css",
+    "static/js/main.205aaf13.js"
   ]
 }

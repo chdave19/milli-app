@@ -1068,10 +1068,10 @@ export const defaultQuestions = randomiseQuestion([
     category: "General Knowledge",
     difficulty: "easy",
     answer: randomiseQuestion([
-      { ans: "Purple", correct: false, selectable: true },
+      { ans: "Purple", correct: false, selectable: false },
       { ans: "Red", correct: true, selectable: true },
       { ans: "Black", correct: false, selectable: true },
-      { ans: "Orange", correct: false, selectable: true },
+      { ans: "Orange", correct: false, selectable: false },
     ]),
   },
   {

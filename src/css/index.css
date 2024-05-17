@@ -444,7 +444,7 @@ button {
   font-weight: 100;
   font-style: normal;
   padding: 1.4rem;
-  top: 18%;
+  top: 7%;
   right: 5%;
   left: 5%;
   /* display: none; */
@@ -482,8 +482,42 @@ button {
   font-weight: 100;
   font-style: normal;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 2.6rem;
+  justify-content: center;
 }
+
+.milli figcaption{
+  padding-inline: 12px;
+}
+
+
+
+.fade{
+  animation-name: fade-in-out;
+  animation-duration: 10000ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fade-in-out {
+  0%{
+    opacity: 0;
+  }
+
+  20%{
+    opacity: 1;
+  }
+
+  85%{
+    opacity: 1;
+  }
+
+  100%{
+    opacity: 0;
+  }
+}
+
+
 
 @media (max-width: 650px) {
   .audience {
@@ -531,6 +565,24 @@ button {
   }
 }
 
+@media (max-width: 400px) {
+  .milli figcaption img{
+    display: block;
+    margin: auto;
+  }
+
+  .start a.start-btn {
+    border-width: 2px;
+    font-size: 1.6rem;
+    padding: 1rem 1.4rem;
+    border-radius: 8px;
+  }
+
+  .milli span{
+    font-size: 1.6rem;
+  }
+}
+
 @media (max-width: 350px) {
   .container {
     width: 100vw;
@@ -538,5 +590,19 @@ button {
   .container > * {
     width: 100%;
     display: flex;
+  }
+
+  .milli{
+    font-size: 2.4rem;
+  }
+
+  .milli figcaption{
+    width: 100%;
+    text-align: center;
+  }
+
+  .milli figcaption img{
+    display: block;
+    margin: auto;
   }
 }

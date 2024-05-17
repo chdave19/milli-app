@@ -211,17 +211,17 @@
   align-items: center;
   font-size: 1rem;
   list-style: none;
-  width: 300px;
-  border: 2px solid #626DA9;
+  border: 2px solid orange;
   border-radius: 8px;
   margin: 1rem;
   padding-block: 10px;
   overflow: hidden;
   padding-top: 1.2rem;
   position: absolute;
-  left: calc(50vw - 150px);
-  top: calc(50vh - 200px);
-  z-index: 999;
+  left: 8%;
+  right: 8%;
+  top: calc(50vh - 60px);
+  z-index: 99999;
   animation-name: glow;
   animation-duration: 0.85s;
   animation-timing-function: linear;
@@ -491,6 +491,12 @@ ul .close{
         border-radius: 12px;
         border-bottom-left-radius: 0px;
         border-bottom-right-radius: 0px;
+    }
+
+    .amount {
+      left: 4%;
+      right: 4%;
+      top: calc(50vh - 40px);
     }
 
 }
