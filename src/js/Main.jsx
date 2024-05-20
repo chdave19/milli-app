@@ -4,7 +4,7 @@ import Ans from "./Ans";
 import Timer from "./Timer";
 import Money from "./Money";
 import Banner from "../img/milli-game-bg.png";
-import { AiOutlineBars, AiTwotoneInfoCircle, AiOutlineClose } from "react-icons/ai";
+import {AiTwotoneInfoCircle, AiOutlineClose } from "react-icons/ai";
 import Footer from "./Footer";
 import Sad from "../img/sad.png";
 import Happy from "../img/happy.png";
@@ -12,7 +12,7 @@ import Platform from '../img/platform.jpeg';
 import Tree from '../img/money-tree.jpeg';
 import LifeLine from "./LifeLine";
 import { Link } from "react-router-dom";
-import { defaultQuestions } from "./QuestionBank";
+// import { defaultQuestions } from "./QuestionBank";
 
 export default class Main extends Component {
   constructor(props) {
